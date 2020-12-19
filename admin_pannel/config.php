@@ -1,13 +1,13 @@
 <?php
-// $servername = "sql12.freemysqlhosting.net";
-// $username = "sql12381483";
-// $password = "76MtWJaASt";
-// $db = "sql12381483";
+$servername = "sql12.freemysqlhosting.net";
+$username = "sql12382803";
+$password = "AIgKGzqz36";
+$db = "sql12382803";
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "fitness_app";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $db = "fitness_app";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
 
