@@ -13,7 +13,7 @@ $db = "sql12382803";
 
 
 //Establish Connection
-$link = mysqli_connect($hostname, $username, $password, $database);
+$link = mysqli_connect($servername, $username, $password, $db);
 
 
 // UserInput Test

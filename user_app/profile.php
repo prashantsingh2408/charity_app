@@ -41,7 +41,7 @@ $stmt_a->close();
    <div class="container container-fluid">
       <div class="row mb-0">
          <div class="w-25">
-            <!--<span class="fa fa-user-circle fa-5x ml-3 mt-2"></span>-->
+            <!--<span class="fa fa-user-circle fa-5x ml-3 mt-2"></span>-->ha
             <div id="imgArea "><img src="<?= $pic; ?>">
             </div>
             <div class="w-75">
@@ -54,9 +54,13 @@ $stmt_a->close();
       <div class="container container-fluid p-4">
          <div class="row mb-0">
             <div class="w-50 text-left">
+
                <h1 class="mb-0 text-muted" style="font-size:32px">Rs <?= (($current * $step_in_m) / 1000) * $rate_per_km; ?></h1>
             </div>
             <div class="w-25 text-center">
+                     <?php
+            $src = '../admin_pannel/' . $workouts['']; 
+         ?>
                <h1 class="mb-0 text-muted"><?= $workouts; ?></h1>
                <p class="mb-0 text-muted" style="font-size:10px">Workouts</p>
             </div>
@@ -76,6 +80,7 @@ $stmt_a->close();
                   </div>
                   <div class="w-75">
                      <h1 class="mb-0 text-muted">0</h1>
+                     
                      <p class="mb-0 text-muted" style="font-size:10px">Current Streak</p>
                   </div>
                </div>
@@ -104,8 +109,14 @@ $stmt_a->close();
                   if ($total_donation_steps > $a['steps']) {
             ?>
                      <figure>
+                  <?php
+            $src = '../admin_pannel/' . $a['img']; 
+         ?>
                         <img src="<?= $a['img'] ?>" style="height:10vh">
                         <figcaption>
+               <?php
+            $src = '../admin_pannel/' . $a['name']; 
+         ?>
                            <p style="font-size:10px"> <?= $a['name']; ?> </p>
                         </figcaption>
                      </figure>
@@ -120,10 +131,10 @@ $stmt_a->close();
       <div class="divider divider-margins mb-1"></div>
       <div class="container-fluid">
          <div class="list-group list-custom-small">
-            <a href="in-progress">
+            <!--<a href="in-progress">
                <span>IN-PROGRESS</span>
                <i class="fa fa-angle-right"></i>
-            </a>
+            </a>-->
             <a href="leaderboard">
                <span>GLOBAL RANK (#9001)</span>
                <i class="fa fa-angle-right"></i>
@@ -154,6 +165,9 @@ $stmt_a->close();
                <h1 class="mb-0 text-info" style="font-size:32px">Rs <?= (($current * $step_in_m) / 1000) * $rate_per_km; ?></h1>
             </div>
             <div class="w-25 text-center">
+                  <?php
+            $src = '../admin_pannel/' . $workouts['']; 
+         ?>
                <h1 class="mb-0 text-muted"><?= $workouts; ?></h1>
                <p class="mb-0 text-muted" style="font-size:10px">Workouts</p>
             </div>

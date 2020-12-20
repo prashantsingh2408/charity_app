@@ -1,6 +1,6 @@
 <?php
-   require_once 'header.php';
-require_once 'session.php';
+require 'header.php';
+require 'session.php';
 include "config.php";
 
 
@@ -67,6 +67,9 @@ if ($result->num_rows > 0) {
          </div>
          <div class="w-25 text-center">
             <i class="fa fa-shoe-prints fa-lg" style="-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-ms-transform: rotate(-90deg);-o-transform: rotate(-90deg);transform: rotate(-90deg);"></i>
+            <?php
+            $src = '../admin_pannel/' . $todays_steps; 
+         ?>
             <h1 class="mb-0"><?=$todays_steps; ?></h1>
             <p class="mb-0">Today's Steps</p>
          </div>
@@ -91,15 +94,27 @@ if ($result->num_rows > 0) {
       <div class="card rounded-s shadow-l">
          <div class="card-bottom p-3 bg-white">
             <div onclick="location.href='cause?token=<?=$t_id;?>' ">
-            <h1 class="color-dark font-700 mb-0"><?=$ngo['name'];?></h1>
+             <?php
+            $src = '../admin_pannel/' . $ngo['name_ngos']; 
+         ?>
+            <h1 class="color-dark font-700 mb-0"><?=$ngo['name_ngos'];?></h1>
+             <?php
+            $src = '../admin_pannel/' . $ngo['partner']; 
+         ?>
             <p class="color-dark opacity-80 mb-0">with <?=$ngo['partner'];?></p>
             <div class="container-fluid">
             <div class="row mb-0">
             <div class='w-50'>
             <h4 class="color-dark font-700 mb-0">Rs <?=$ngo['current_amount'];?></h4>
+                  <?php
+            $src = '../admin_pannel/' . $ngo['total_goal']; 
+         ?>
             <p class="color-dark opacity-80 mb-0">raised of <?=$ngo['total_goal'];?></p>
             </div>
             <div class="w-50 text-right">
+                      <?php
+            $src = '../admin_pannel/' . $ngo['no_of_workout']; 
+         ?>
             <h4 class="color-dark font-700 mb-0"><?=$ngo['no_of_workout'];?></h4>
             <p class="color-dark opacity-80 mb-0">Workouts</p>
             </div>
@@ -109,17 +124,15 @@ if ($result->num_rows > 0) {
             <a href="workout" class="btn btn-m btn-center-l text-uppercase font-900 bg-highlight rounded-sm shadow-xl mt-2 w-100">OUTDOOR WORKOUT</a>
          </div>
          <div class="card-overlay"></div>
-         <img class="img-fluid img-type-1" src="<?=$ngo['img'];?>" onclick="location.href='cause?token=<?=$t_id;?>'">
-      </div>
-       
          <?php
-               
+            $src = '../admin_pannel/' . $ngo['img']; 
+         ?>
+         <img class="img-fluid img-type-1" src="<?=$src;?>" alt="<?=$src;?>" onclick="location.href='cause?token=<?=$t_id;?>'">
+      </div> 
+         <?php          
             }
         }
         ?>
-       
-       
-      
        </div>
    </div>
 </div>
