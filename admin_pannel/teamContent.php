@@ -66,14 +66,14 @@
 
                   <!-- Team Edit Button -->
                   <form action='teamEdit.php' method='get'>
-                    <button type="submit" name="id" value="<?= $id ?>" class="btn btn-primary">
+                    <button type="submit" name="id" value="<?= $row['id']; ?>" class="btn btn-primary">
                       <i class="icon-user icon-white"></i> Edit
                     </button>
                   </form>
 
                   <!-- Team View Button -->
                   <form method='get' action='teamView.php'>
-                    <button type="submit" name="id" value="<?= $id ?>" class='btn btn-info'><i class='fas fa-eye'></i></button>
+                    <button type="submit" name="id" value="<?= $row['id'] ?>" class='btn btn-info'><i class='fas fa-eye'></i></button>
                   </form>
 
                   <!-- Team Remove Button -->

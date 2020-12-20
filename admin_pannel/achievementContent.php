@@ -13,7 +13,7 @@
             <br />
             <h2 align="center">Achievement</h2><br />
             <br />
-            <form method="post" id="add_details">
+            <form method="post" action='achievementAdd.php' id="add_details" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Steps</label>
                     <input type="text" name="steps" class="form-control" required />
@@ -48,12 +48,12 @@
                         $id = $row["id"];
                         $steps = $row["steps"];
                         $name = $row['name'];
-                        $img  = $row['img']; ?>
+                        $img  = $row['img'];
+                        ?>
                         <tr id=<?= 'goaltr' . $id ?>>
-                            <td>
-                                <?= $steps ?></td>
+                            <td><?= $steps ?></td>
                             <td><?= $name ?></td>
-                            <td><img src='<?= $img ?>'></td>
+                            <td><img src='<?= $img ?>' height='60' alt='<?= $img ?>'></td>
                             <td>
                                 <button type="submit" id="del" name="del" class="text-right btn btn-danger" value="13" onclick="removetrAchievement('<?= 'goaltr' . $id ?>')" )"><i class="fa fa-trash"></i></button>
                             </td>

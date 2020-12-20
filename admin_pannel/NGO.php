@@ -9,7 +9,7 @@
 
             <?php require_once "mainSidebar.php" ?>
 
-            <?php require_once "adminNGOContent.php" ?>
+            <?php require_once "NGOContent.php" ?>
             <?php require_once "footer.php" ?>
 
             <!-- Control Sidebar -->

@@ -19,4 +19,4 @@ $sql = "UPDATE ngos SET name_ngos = '$name_ngos',
           about = '$about'  WHERE id = $id";
 // echo $sql;
 $conn -> query($sql);
-header("location:adminNGO.php");
+header("location:NGO.php");

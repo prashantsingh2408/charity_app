@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">NGOs</h1>
+                    <h1 class="m-0 text-dark">NGOs and Events</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
 
@@ -17,7 +17,7 @@
     <!-- /.card -->
     <div class="card card-info">
         <div class="card-header">
-            <h3 class="card-title">NGOs Records</h3>
+            <h3 class="card-title">NGOs and Events Records</h3>
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fas fa-minus"></i></button>
@@ -45,7 +45,7 @@
                     <!-- Dynamic Table,Fetch and remove data from table -->
                     <?php
                     require 'config.php';
-                    $sql = "SELECT id,name_ngos,partner,current_amount,total_goal FROM ngos";
+                    $sql = "SELECT * FROM ngos";
                     $result = $conn->query($sql);
 
                     while ($row =  $result->fetch_assoc()) {
@@ -54,8 +54,12 @@
                         $partner = $row['partner'];
                         $current_amount = $row['current_amount'];
                         $total_goal = $row['total_goal'];
+
                     ?>
                         <tr id="<?= $id; ?>">
+                            <td contenteditable="true">
+                                <img src="<?= $row['img']; ?>" alt="<?= $row['img']; ?>" height='50'>
+                            </td>
                             <td contenteditable="true"><?= $id; ?></td>
                             <td contentedita ble="true"><?= $name_ngos; ?></td>
                             <td contenteditable="true"><?= $partner; ?></td>
@@ -63,8 +67,8 @@
                             <td contenteditable="true"><?= $total_goal; ?></td>
                             <td class='text-right py-0 align-middle'>
                                 <div class='btn-group btn-group-sm'>
-                                    
-   
+
+
                                     <form id='form1' method='get' action="NGO_event_add.php">
                                         <button form='form1' type="submit" name='id' value='<?= $id ?>' class="btn btn-info">Add Event
                                         </button>

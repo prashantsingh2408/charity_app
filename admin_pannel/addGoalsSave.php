@@ -11,11 +11,11 @@ $goal_value = $_POST['goal_value'];
 
 $sql = "INSERT INTO goals (goal_name, goal_value) VALUES ('$goal_name','$goal_value'    )";
 $result = $conn -> query($sql);
+header("location:addGoals.php");
+// $data = array(
+//  'goal_name'  => $goal_name,
+//  'goal_value'  => $goal_value
+// );
 
-$data = array(
- 'goal_name'  => $goal_name,
- 'goal_value'  => $goal_value
-);
-
-echo json_encode($data);
+// echo json_encode($data);
 ?>

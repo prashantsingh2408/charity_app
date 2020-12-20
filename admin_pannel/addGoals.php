@@ -26,33 +26,55 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function() {
+        function trash(name) {
+            $('#' + name).remove();
 
-            $('#add_details').on('submit', function(event) {
-                event.preventDefault();
-                $.ajax({
-                    url: "addGoal.php",
-                    method: "POST",
-                    data: $(this).serialize(),
-                    dataType: "json",
-                    beforeSend: function() {
-                        $('#add').attr('disabled', 'disabled');
-                    },
-                    success: function(data) {
-                        $('#add').attr('disabled', false);
-                        if (data.goal_name) {
-                            var html = '<tr>';
-                            html += '<td>' + data.goal_name + '</td>';
-                            html += '<td>' + data.goal_value + '</td></tr>';
-                            $('#tbody').prepend(html);
-                            $('#tbody')[0].reset();
-                        }
-                    }
-                })
-            });
+            $.post('goalRemove.php', {
+                    name: name
+                },
+                function(data, status) {
+                }
+            )
+        }
 
-        });
-    </script>
+    //     $(document).ready(function() {
+
+    //         $('#add_details').on('submit', function(event) {
+    //             event.preventDefault();
+    //             $.ajax({
+    //                 url: "addGoal.php",
+    //                 method: "POST",
+    //                 data: $(this).serialize(),
+    //                 dataType: "json",
+    //                 beforeSend: function() {
+    //                     $('#add').attr('disabled', 'disabled');
+    //                 },
+    //                 success: function(data) {
+    //                     $('#add').attr('disabled', false);
+    //                     if (data.goal_name) {
+    //                         window.location.href = "addGoals.php";
+
+    //                         // var html = '<tr>';
+    //                         // html += '<td>' + data.goal_name + '</td>';
+    //                         // html += '<td>' + data.goal_value + '</td>';
+    //                         // html += "<td class='pull-right'>" + '' + '<td>';
+    //                         // html += '<button';
+    //                         // html += " type='submit";
+    //                         // html += " class='text-right btn btn-danger'";
+    //                         // html += " value='13'";
+
+    //                         // html += ">";
+    //                         // html += "<i class='fa fa-trash'></i>";
+    //                         // html += "</button>"
+    //                         // $('#tbody').prepend(html);
+    //                         // $('#tbody')[0].reset();
+    //                     }
+    //                 }
+    //             })
+    //         });
+
+    //     });
+     </script>
     <!-- /For add Goals -->
 
     <!-- For removing goal -->
@@ -83,39 +105,39 @@
                     goal_name: goal_name,
                 },
                 function(data, status) {
-                        $('#' + id).reset();
+                    $('#' + id).reset();
                 }
             );
         }
 
         //add Goal in <tr> of <table>
         //Add Remove User
-        $(document).ready(function() {
-            $('#add_details').on('submit', function(event) {
-                event.preventDefault();
-                $.ajax({
-                    url: "addGoal.php",
-                    method: "POST",
-                    data: $(this).serialize(),
-                    dataType: "json",
-                    beforeSend: function() {
-                        $('#add').attr('disabled', 'disabled');
-                    },
-                    success: function(data) {
-                        $('#add').attr('disabled', false);
-                        if (data.name) {
-                            var html = '<tr>';
-                            html += '<td>' + data.steps + '</td>';
-                            html += '<td>' + data.name + '< /td></tr>';
-                            // html += '<td>' + data.img + '</td></tr>';
-                            $('#tbody').prepend(html);
-                            $('#tbody')[0].reset();
-                        }
-                    }
-                })
-            });
+        // $(document).ready(function() {
+        //     $('#add_details').on('submit', function(event) {
+        //         event.preventDefault();
+        //         $.ajax({
+        //             url: "addGoal.php",
+        //             method: "POST",
+        //             data: $(this).serialize(),
+        //             dataType: "json",
+        //             beforeSend: function() {
+        //                 $('#add').attr('disabled', 'disabled');
+        //             },
+        //             success: function(data) {
+        //                 $('#add').attr('disabled', false);
+        //                 if (data.name) {
+        //                     var html = '<tr>';
+        //                     html += '<td>' + data.steps + '</td>';
+        //                     html += '<td>' + data.name + '< /td></tr>';
+        //                     // html += '<td>' + data.img + '</td></tr>';
+        //                     $('#tbody').prepend(html);
+        //                     $('#tbody')[0].reset();
+        //                 }
+        //             }
+        //         })
+        //     });
 
-        });
+        // });
 
 
         // remove goal
@@ -151,59 +173,7 @@
         //         });
         // }
 
-        function NGOUpdate(id) {
-
-            var c = document.getElementById(id).children;
-            var i;
-            var obj = {};
-            //Save value in obj
-            for (i = 0; i < c.length; i = i + 2) {
-                key = c[i].innerText;
-                value = c[i + 1].value;
-                if (value == '') {
-                    value = c[i + 1].placeholder;
-                }
-                obj[key] = value;
-            }
-            $.post('NGOUpdate.php',
-                obj,
-                function(data, status) {
-                    alert(data);
-                });
-        }
-
-        function NGOAdd(id) {
-            //For testing
-            //alert('testing');
-            var c = document.getElementById(id).children;
-            var i;
-            var obj = {};
-            //Save value in obj
-            for (i = 0; i < c.length; i = i + 2) {
-                //alert(c.length);
-                key = c[i].innerText;
-                value = c[i + 1].value;
-                if (value == '') {
-                    value = c[i + 1].placeholder;
-                }
-                obj[key] = value;
-                //testing
-                // alert(i + ' ' + key + obj[key]);
-            }
-            // alert('testing');
-            //For testing
-            // alert(obj['id']);
-            //    for (const property in obj){
-            //         alert(property + obj[property]);
-            //    }
-            $.post('NGOAdd.php',
-                obj,
-                function(data, status) {
-                    alert(data);
-                    //Hide Form again after adding
-                    document.getElementById('hideAddForm').style.display = 'none';
-                });
-        }
+        
     </script>
     <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>

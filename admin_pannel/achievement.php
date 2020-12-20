@@ -26,33 +26,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         //Add Achievement
-        $(document).ready(function() {
-            $('#add_details').on('submit', function(event) {
-                event.preventDefault();
-                $.ajax({
-                    url: "achievementAdd.php",
-                    method: "POST",
-                    data: $(this).serialize(),
-                    dataType: "json",
-                    beforeSend: function() {
-                        $('#add').attr('disabled', 'disabled');
-                    },
-                    success: function(data) {
-                        $('#add').attr('disabled', false);
-                        alert('hi');
-                        if (data.name) {
-                            var html = '<tr>';
-                            html += '<td>' + data.steps + '</td>';
-                            html += '<td>' + data.name + '</td></tr>';
-                            // html += '<td>' + data.img + '</td></tr>';
-                            $('#table_data').prepend(html);
-                            $('#add_details')[0].reset();
-                        }
-                    }
-                })
-            });
+        // $(document).ready(function() {
+        //     $('#add_details').on('submit', function(event) {
+        //         event.preventDefault();
+        //         $.ajax({
+        //             url: "achievementAdd.php",
+        //             method: "POST",
+        //             data: $(this).serialize(),
+        //             dataType: "json",
+        //             beforeSend: function() {
+        //                 $('#add').attr('disabled', 'disabled');
+        //             },
+        //             success: function(data) {
+        //                 $('#add').attr('disabled', false);
+        //                 alert('hi');
+        //                 if (data.name) {
+        //                     var html = '<tr>';
+        //                     html += '<td>' + data.steps + '</td>';
+        //                     html += '<td>' + data.name + '</td></tr>';
+        //                     // html += '<td>' + data.img + '</td></tr>';
+        //                     $('#table_data').prepend(html);
+        //                     $('#add_details')[0].reset();
+        //                 }
+        //             }
+        //         })
+        //     });
 
-        });
+        // });
     </script>
     <script>
         // remove Achievement

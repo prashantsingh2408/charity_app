@@ -80,7 +80,7 @@ $row = $result->fetch_assoc();
               <p>No of NGOs</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <!-- <i class="ion ion-stats-bars"></i> -->
             </div>
             <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
@@ -103,7 +103,7 @@ $row = $result->fetch_assoc();
               <p>No of Teams</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <!-- <i class="ion ion-stats-bars"></i> -->
             </div>
             <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
@@ -130,7 +130,7 @@ $row = $result->fetch_assoc();
               <p>Total Team Members</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <!-- <i class="ion ion-stats-bars"></i> -->
             </div>
             <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
@@ -153,7 +153,7 @@ $row = $result->fetch_assoc();
               <p>No of Goals Available</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <!-- <i class="ion ion-stats-bars"></i> -->
             </div>
             <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
@@ -204,7 +204,7 @@ $row = $result->fetch_assoc();
                   ?>
                     <li>
                       <img style='border-radius:50%;' src="<?= $rows['pic'] ?>" alt="<?= $rows['pic'] ?>">
-                      <a class="users-list-name" href="#"><?= $rows['total_donation_steps'] ?></a>
+                      <!-- <a class="users-list-name" href="#"><?= $rows['total_donation_steps'] ?></a> -->
                       <span class="users-list-date"><?= $rows['firstname'] . ' ' . $rows['lastname'] ?></span>
                     </li>
                   <?php
@@ -256,9 +256,9 @@ $row = $result->fetch_assoc();
                 <!-- /.users-list -->
               </div>
               <!-- /.card-body -->
-              <div class="card-footer text-center">
+              <!-- <div class="card-footer text-center">
                 <a href="javascript:">View All Users</a>
-              </div>
+              </div> -->
               <!-- /.card-footer -->
             </div>
             <!--/.card -->

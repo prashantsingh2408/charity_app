@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Use</h1>
+                    <h1 class="m-0 text-dark">NGO & Event View</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
 
@@ -18,7 +18,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Bordered Table</h3>
+                    <h3 class="card-title">Table View</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -35,35 +35,73 @@
                             $id = $_GET['id'];
                             require 'config.php';
                             $sql = "SELECT * FROM ngos WHERE id =$id";
-
                             $result = $conn->query($sql);
                             $row = $result->fetch_assoc();
-                            foreach ($row as $key => $value) {
                             ?>
+                            <tr>
+                                <td>ID</td>
+                                <td><?= $row['id'] ?></td>
+                            </tr>
 
-                                <tr>
-                                    <td> <?= $key ?></td>
+                            <tr>
+                                <td>Name NGOs</td>
+                                <td><?= $row['name_ngos'] ?></td>
+                            </tr>
 
-                                    <!-- Execute if not img -->
-                                    <?php
-                                    if ($key != 'img') {
-                                    ?>
-                                        <th><?= $value ?></th>
+                            <tr>
+                                <td>Partner</td>
+                                <td><?= $row['partner'] ?></td>
+                            </tr>
 
-                                    <!-- Execute if  img -->
-                                    <?php
-                                    } else {
-                                        $imgURL = 'uploads/' . $value;
-                                    ?>
-                                        <th><img src="<?= $imgURL ?>" alt='not loaded' height='100'></th>
-                                    <?php
-                                    }
-                                    ?>
-                                </tr>
+                            <tr>
+                                <td>Current Amount</td>
+                                <td><?= $row['current_amount'] ?></td>
+                            </tr>
 
-                            <?php
-                            }
-                            ?>
+                            <tr>
+                                <td>Total Goal</td>
+                                <td><?= $row['total_goal'] ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>No Of Workout</td>
+                                <td><?= $row['no_of_workout'] ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>About</td>
+                                <td><?= $row['about'] ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>Image</td>
+                                <td><img src="<?= $row['img'] ?>" alt="<?= $row['img'] ?>" height='60'></td>
+                            </tr>
+
+                            <tr>
+                                <td>Amount Raised</td>
+                                <td><?= $row['amount_raised'] ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>No of days</td>
+                                <td><?= $row['no_of_days'] ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>Event Name</td>
+                                <td><?= $row['events'] ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>Change Makers</td>
+                                <td><?= $row['change_makers'] ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>Timespent</td>
+                                <td><?= $row['timespent'] ?></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
