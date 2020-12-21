@@ -28,11 +28,11 @@
                                 $goal_name = $row["goal_name"];
                                 $goal_value = $row['goal_value'];
                             ?>
-                                <tr id=<?= 'goalrow' . $goal_name ?>>
+                                <tr id=<?=$goal_name ?>>
                                     <td><?= $goal_name ?></td>
                                     <td><?= $goal_value ?></td>
                                     <td class="pull-right">
-                                        <button type="submit" id="del" name="del" class="text-right btn btn-danger" value="13" onclick="removeGoal('<?= 'goalrow' . $goal_name ?>')"><i class="fa fa-trash"></i></button>
+                                        <button type="submit" id="del" name="del" class="text-right btn btn-danger" value="13" onclick="trash('<?=$goal_name; ?>')"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
                             <?php
@@ -40,7 +40,7 @@
                             ?>
                         </tbody>
                         <tfoot>
-                            <form method="post" id="add_details">
+                            <form action ='addGoalsSave.php' method="post" id="add_details">
                                 <tr>
                                     <td>
                                         <div class="input-group mb-3">

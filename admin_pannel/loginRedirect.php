@@ -14,6 +14,8 @@ if (isset($_GET['password']) && isset($_GET['email'])) {
     
     else {
         //Alert message and redirect to login again
-        echo "<script>alert('Wrong authentication'); window.location.href = './login.php';</script>";
+        // echo "<script>alert('Wrong authentication'); window.location.href = './login.php';</script>";
+        header('location:index.php');
+        echo "correct";
     }
 }

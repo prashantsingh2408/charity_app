@@ -32,7 +32,7 @@ $row = $result->fetch_assoc();
     <div class="container-fluid">
       <div class="card card-info">
         <div class="card-header">
-          <h3 class="card-title"><?= 'nae' . 'Info Edit'  ?></h3>
+          <h3 class="card-title"><?= 'Info Edit'  ?></h3>
         </div>
         <div class="card-body">
           <!-- Team Edit Form -->
@@ -74,7 +74,7 @@ $row = $result->fetch_assoc();
             <div class='col'>
               <div class="input-group mb-3 ">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">@ Team members</span>
+                  <span class="input-group-text">Team members seperated by ,</span>
                 </div>
                 <input name='team_members' type="text" class="form-control" placeholder="<?= $row['team_members'] ?>" value="<?= $row['team_members'] ?>">
               </div>

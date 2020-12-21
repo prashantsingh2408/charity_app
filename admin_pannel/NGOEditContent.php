@@ -31,7 +31,7 @@ $img = $row['img'];
                 </div>
                 <div class="card-body">
                     <!-- Team Edit Form -->
-                    <form action='./teamEditSave.php' method='post' id='editForm' enctype='multipart/form-data'>
+                    <form action='./NGOEditSave.php' method='post' id='editForm' enctype='multipart/form-data'>
                         <div class='row'>
                             <!-- User id(disable,user cant't change it) -->
                             <div class='col'>

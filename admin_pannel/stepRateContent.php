@@ -11,7 +11,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Current Rate -->
-        <pre id='current_rate_area'>Current rate <?= $rate_per_km ?> </pre>
+        <pre id='current_rate_area'>Current rate <?= $rate_per_km ?> Rs/km </pre>
 
         <!-- For Km -->
         <h1>Set Rate Per Km</h1>

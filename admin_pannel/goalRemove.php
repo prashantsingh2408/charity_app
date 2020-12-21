@@ -1,7 +1,7 @@
 <?php
-$goal_name = $_POST['goal_name'];
-echo $gaol_name;
+$name = $_POST['name'];
+echo $name;
 require "config.php";
-$sql = "DELETE FROM goals WHERE goal_name = '$goal_name'";
+$sql = "DELETE FROM goals WHERE goal_name = '$name'";
 $conn->query($sql);
 

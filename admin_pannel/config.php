@@ -7,6 +7,17 @@ $db = "sql12382803";
 // $servername = "localhost";
 // $username = "root";
 // $password = "";
+// $db = "sql12382803";
+
+
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $db = "sql12382803";
+
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
 // $db = "fitness_app";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
