@@ -6,6 +6,11 @@ $username = "sql12382803";
 $password = "AIgKGzqz36";
 $db = "sql12382803";
 
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $db = "sql12382803";
+
 // $hostname = "localhost";
 // $username = "root";
 // $password = "";
