@@ -1,8 +1,11 @@
 <?php
+
 require_once 'config.php';
+
 include 'session.php';
 if(isset($_POST['status']) && (isset($_POST['team_id'])))
 {
+//    alert("yes");
     $status=$_POST['status'];
      $user_id=$_SESSION['loggin_data'];
      $team_id=$_POST['team_id'];

@@ -2,8 +2,6 @@
 require 'header.php';
 require 'session.php';
 include "config.php";
-
-
 require "auth.php";
 
 if($firstname=='' || $phone =='' || $lastname ='')
@@ -23,31 +21,23 @@ else if($goals_id=='')
 {
       header("location:login-7.php");
 }
-/*else
-{
-      header("location:login-9.php");
-}*/
-
 
 if(!(auth()))
 {
     header("location: login.php");
 }
 //profile_check();
-						
 $sql = "SELECT * from ngos";
 $result = $link->query($sql);
 
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc())
-  {
+if($result->num_rows > 0) {
+// output data of each row
+while($row = $result->fetch_assoc())
+{
       $ngos[]=$row;
   }
 }
-		
    ?>
-   
 <div class="header header-fixed header-logo-center" style="border-bottom: solid 0px rgba(0,0,0,.0);box-shadow: 0 0px 0px 0 rgba(0,0,0,.0);">
    <a href="index" class="header-title">Hi <?=$firstname; ?> !</a>
    <a href="feed" class="header-icon header-icon-1"><i class="fas fa-globe-asia" ></i></a>
@@ -73,8 +63,7 @@ if ($result->num_rows > 0) {
             <h1 class="mb-0"><?=$todays_steps; ?></h1>
             <p class="mb-0">Today's Steps</p>
          </div>
-          
-          
+
          <div class="w-100 text-center">
             <p class="mb-2">Only <?=(($target-$todays_steps)*$step_in_m)/1000; ?> km to maintain streak</p>
          </div>
@@ -137,6 +126,6 @@ if ($result->num_rows > 0) {
    </div>
 </div>
 <?php
-   require_once 'footer.php';
-   require_once 'js-links.php';
-   ?>
+require_once 'footer.php';
+require_once 'js-links.php';
+?>

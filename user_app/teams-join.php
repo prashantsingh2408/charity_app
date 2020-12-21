@@ -1,11 +1,15 @@
 <?php
-require_once 'header.php';
+   require_once 'header.php';
+
 require 'config.php';
+
+//echo $id;
+
 
 $stmt=$link->prepare("SELECT * FROM teams where user_id=?" );
 $stmt->bind_param("i",$id);
-$stmt->execute();
-$result=$stmt->get_result();
+        $stmt->execute();
+        $result=$stmt->get_result();
         
 if ($result->num_rows > 0) {
   // output data of each row
@@ -14,11 +18,12 @@ if ($result->num_rows > 0) {
       $teams[]=$row;
   }
 }
-$stmt->close();
+ $stmt->close();
+
 $stmt_o=$link->prepare("SELECT * FROM teams where user_id<>?" );
-$stmt_o->bind_param("i",$id);
-$stmt_o->execute();
-$result_o=$stmt_o->get_result();
+        $stmt_o->bind_param("i",$id);
+        $stmt_o->execute();
+        $result_o=$stmt_o->get_result();
         
 if ($result_o->num_rows > 0) {
   // output data of each row
@@ -27,6 +32,7 @@ if ($result_o->num_rows > 0) {
       $other_teams[]=$row_o;
   }
 }
+	
    ?>
 <div class="header header-fixed header-logo-center">
    <a href="#" class="header-title">Join Team</a>
@@ -43,23 +49,29 @@ if ($result_o->num_rows > 0) {
              <?php
         if(isset($teams))
         {
+        
             foreach($teams as $team)
             {
                $t_id= $team['id'];
+              
+                
                 ?>
          <a href="league-member-list?token=<?=$t_id;?> ">
             <img src="<?= $team['t_img']?>" class="profile-img">
             <?= $team['t_name']?>
             <span class="float-right"><?= $team['t_members']?> <i class="fa fa-users fa-lg" style="font-size:16px;color:black"></i></span>
          </a>
-                        <?php    
-                        }
+                        
+                <?php    
+       
+            }
         }
           ?>
         <p>Other teams</p>
              <?php
         if(isset($other_teams))
         {
+           
             foreach($other_teams as $other_team)
             {
                $t_id= $other_team['id'];
@@ -68,8 +80,10 @@ if ($result_o->num_rows > 0) {
             <img src="<?= $other_team['t_img']?>" class="profile-img">
             <?= $other_team['t_name']?>
             <span class="float-right"><?= $other_team['t_members']?> <i class="fa fa-users fa-lg" style="font-size:16px;color:black"></i></span>
-         </a>         
+         </a>
+                        
                 <?php    
+               
             }
         }
           ?>
