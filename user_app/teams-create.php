@@ -13,8 +13,12 @@ require 'config.php';
 
             <span class="color-highlight input-style-1-inactive">Team Name</span>
             <input class="form-control" type="text" placeholder="Team Name" name="teamname" id="teamname">
-            <span class="color-highlight input-style-1-inactive">Team Purpose</span>
-            <input class="form-control" type="text" placeholder="Team Purpose" name="teampurpose" id="teampurpose" value="">
+            <span class="color-highlight input-style-1-inactive">Team Leader</span>
+            <input class="form-control" type="text" placeholder="Team Leader" name="team_leader" id="team_leader" value="">
+            <span class="color-highlight input-style-1-inactive">Team Members</span>
+            <input class="form-control" type="text" placeholder="Team Members" name="team_members" id="team_members" value="">
+            <span class="color-highlight input-style-1-inactive">Team Pic</span>
+            <input class="form-control" type="file" placeholder="Team Pic" name="pic" id="pic" value="">
         </div>
         <!-- <a href="teams-create" class="btn btn-m btn-center-l bg-highlight text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4">
         CREATE TEAM <i class="fa fa-lock"></i>

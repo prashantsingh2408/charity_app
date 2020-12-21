@@ -99,7 +99,7 @@ require_once 'config.php';
                         
                         if(obj.msg=='old')
                             {
-                              window.location='index.php';
+                              window.location='index1.php';
                             }
                         
                         else if(obj.msg=='register')

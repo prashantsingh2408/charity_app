@@ -14,6 +14,6 @@ function profile_check()
   } else if (!(isset($goals))) {
     header("location: login-7.php");
   } else {
-    header("location: index.php");
+    header("location: index1.php");
   }
 }

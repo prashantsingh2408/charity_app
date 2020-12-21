@@ -41,7 +41,7 @@ $stmt_a->close();
    <div class="container container-fluid">
       <div class="row mb-0">
          <div class="w-25">
-            <!--<span class="fa fa-user-circle fa-5x ml-3 mt-2"></span>-->ha
+            <!--<span class="fa fa-user-circle fa-5x ml-3 mt-2"></span>-->
             <div id="imgArea "><img src="<?= $pic; ?>">
             </div>
             <div class="w-75">
@@ -104,7 +104,6 @@ $stmt_a->close();
          <div class="row">
             <?php
             if (isset($achievements)) {
-
                foreach ($achievements as $a) {
                   if ($total_donation_steps > $a['steps']) {
             ?>
@@ -127,7 +126,6 @@ $stmt_a->close();
             ?>
          </div>
       </div>
-
       <div class="divider divider-margins mb-1"></div>
       <div class="container-fluid">
          <div class="list-group list-custom-small">
