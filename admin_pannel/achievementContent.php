@@ -33,40 +33,41 @@
             <br />
             <h3 align="center">View Achievement</h3>
             <br />
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Steps</th>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="table_data">
-                    <?php
-                    while ($row = $result->fetch_assoc()) {
-                        $id = $row["id"];
-                        $steps = $row["steps"];
-                        $name = $row['name'];
-                        $img  = $row['img'];
-                        ?>
-                        <tr id=<?= 'goaltr' . $id ?>>
-                            <td><?= $steps ?></td>
-                            <td><?= $name ?></td>
-                            <td><img src='<?= $img ?>' height='60' alt='<?= $img ?>'></td>
-                            <td>
-                                <button type="submit" id="del" name="del" class="text-right btn btn-danger" value="13" onclick="removetrAchievement('<?= 'goaltr' . $id ?>')" )"><i class="fa fa-trash"></i></button>
-                            </td>
-                            <!-- <td onclick="removetrAchievement('')"><i class="fa fa-trash"></td> -->
+            <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Steps</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Action</th>
                         </tr>
+                    </thead>
+                        <tbody id="table_data">
+                            <?php
+                            while ($row = $result->fetch_assoc()) {
+                                $id = $row["id"];
+                                $steps = $row["steps"];
+                                $name = $row['name'];
+                                $img  = $row['img'];
+                            ?>
+                                <tr id=<?= 'goaltr' . $id ?>>
+                                    <td><?= $steps ?></td>
+                                    <td><?= $name ?></td>
+                                    <td><img src='<?= $img ?>' height='60' alt='<?= $img ?>'></td>
+                                    <td>
+                                        <button type="submit" id="del" name="del" class="text-right btn btn-danger" value="13" onclick="removetrAchievement('<?= 'goaltr' . $id ?>')" )"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                    <!-- <td onclick="removetrAchievement('')"><i class="fa fa-trash"></td> -->
+                                </tr>
 
-                    <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
-    </div><!-- /.container-fluid -->
-</div>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                </table>
+            </div>
+        </div><!-- /.container-fluid -->
+    </div>
 </div>
 <!-- /.content-wrapper -->

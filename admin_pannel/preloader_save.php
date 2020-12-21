@@ -61,3 +61,5 @@ $sql = "UPDATE admin SET preloader = '$target_file'";
 $conn->query($sql);
 
 ////END Input file
+
+header("location:preloader.php");

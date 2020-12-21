@@ -1,31 +1,24 @@
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Advertisements</h1>
-        </div><!-- /.col -->
-        <div class="col-sm-6">
+<div class="content-wrapper" style="min-height: 564.331px;">
 
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </div>
-  <!-- /.userTable -->
-  <!-- /.card -->
-  <div class="card card-info">
+  <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Advertisements List</h3>
-      <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-          <i class="fas fa-minus"></i></button>
-      </div>
-    </div>
+      <h3 class="card-title">Advertisement List</h3>
 
-    <div class="card-body p-0">
-      <table class="table">
+      <!-- <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0" style="height: 300px;">
+      <table class="table table-head-fixed text-nowrap">
         <thead>
           <tr>
             <!-- <th>Photo</th> -->
@@ -54,8 +47,8 @@
           while ($rows = $result->fetch_assoc()) {
           ?>
             <tr id="<?= $rows['id']; ?>">
-              <th> <?=   $rows['id'] ?> </th>
-              <td> <img src="<?= $rows['img'] ?>" alt="<?=  $rows['img'] ?>" height='60'> </td>
+              <th> <?= $rows['id'] ?> </th>
+              <td> <img src="<?= $rows['img'] ?>" alt="<?= $rows['img'] ?>" height='60'> </td>
               <td> <?= $rows['link'] ?> </td>
               <td> <button class='btn btn-danger' onclick="trash(<?= $id; ?>)"><i class='fas fa-trash'> </i></button> </td>
             </tr>
@@ -67,6 +60,4 @@
     </div>
     <!-- /.card-body -->
   </div>
-  <!-- /.card -->
-</div>
-<!-- /.content-wrapper -->
+        </div>
