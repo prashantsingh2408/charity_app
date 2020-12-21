@@ -10,7 +10,7 @@ require_once 'config.php'; ?>
 
     <?php require_once "mainSidebar.php" ?>
 
-    <?php require_once "advertisementsContent.php" ?>
+    <?php require_once "change_logo_content.php" ?>
     <?php require_once "footer.php" ?>
 
     <!-- Control Sidebar -->
@@ -26,14 +26,78 @@ require_once 'config.php'; ?>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
-    function trash(id) {
-      $('#' + id).remove();
+    function removeUser($id) {
 
-      $.post('advertisements_remove.php', {
+      $("#" + $id).remove();
+      id = $id;
+      $.post("userRemove.php", {
+          id: id,
+        },
+        function(data, status) {
+          window.location.replace("user.php");
+        });
+    }
+
+    function updateUserInfo(id) {
+
+      var c = document.getElementById(id).children;
+      var i;
+      var obj = {};
+      //Save value in obj
+      for (i = 0; i < c.length; i = i + 2) {
+        key = c[i].innerText;
+        value = c[i + 1].value;
+        if (value == '') {
+          value = c[i + 1].placeholder;
+        }
+        obj[key] = value;
+      }
+      $.post('userUpdate.php',
+        obj,
+        function(data, status) {
+          //alert(data);
+        });
+    }
+
+    function userAdd(id) {
+      //For testing
+      // alert('testing');
+      var c = document.getElementById(id).children;
+      var i;
+      var obj = {};
+      //Save value in obj
+      for (i = 0; i < 37; i = i + 2) {
+        // alert(c.length);
+        key = c[i].innerText;
+        value = c[i + 1].value;
+        if (value == '') {
+          value = c[i + 1].placeholder;
+        }
+        obj[key] = value;
+        //    alert('id=' + i + ' ' + key + obj[key] + obj['id']);
+      }
+      //For testing
+      // alert(obj['id']);
+      //    for (const property in obj){
+      //         alert(property + obj[property]);
+      //    }
+      $.post('userAdd.php',
+        obj,
+        function(data, status) {
+          confirm('Added');
+          //Hide Form again after adding
+          document.getElementById('hideAddForm').style.display = 'none';
+        });
+    }
+
+    function userEdit(id) {
+      alert(id);
+      $.post('userEdit.php', {
           id: id
         },
-        function(data, status) {}
-      )
+        function(data, status) {
+          alert(data);
+        });
     }
   </script>
   <!-- jQuery -->

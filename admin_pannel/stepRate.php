@@ -33,7 +33,7 @@
       output.innerHTML = this.value;
     };
   </script>
-  //For Edit pop up form
+  <!--For Edit pop up form-->
   <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
