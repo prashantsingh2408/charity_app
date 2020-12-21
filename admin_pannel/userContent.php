@@ -1,6 +1,4 @@
-
-
-<div class="card">
+<div class="content-wrapper" style="min-height: 564.331px;" <div class="card">
     <div class="card-header">
         <h3 class="card-title">User Records</h3>
 
@@ -90,3 +88,4 @@
     </div>
     <!-- /.card-body -->
 </div>
+            </div>
