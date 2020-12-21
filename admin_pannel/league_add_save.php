@@ -1,25 +1,19 @@
 <?php
-$league = $_POST['league'];
+$league = $_POST['state'];
 $raised = $_POST['raised'];
 
 require "config.php";
+require "general_fun().php";
 
-// create new id
-$sql = 'SELECT COUNT(id) FROM league';
-echo $sql;
-$result  = $conn->query($sql);
-$rows = $result->fetch_assoc();
-$current_id = $rows['COUNT(id)'];
-$new_id = $current_id + 1;
-// END create new id
-echo $new_id;
+$id_new = create_id('league');
 
 // Save in db
-$sql = "INSERT INTO league(id,league,raised) VALUE($new_id,'$league','$raised')";
+$sql = "UPDATE league set league='$league', raised='$raised' WHERE id='$id_new'";
+echo $sql;
 echo $sql;
 $result =$conn->query($sql);
 
 // Redirect to league page
-header("location:league.php");
+// header("location:league.php");
 
 ?>
