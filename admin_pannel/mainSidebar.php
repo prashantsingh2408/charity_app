@@ -110,7 +110,7 @@
                               </a>
                           </li>
 
-                          <!-- <li class="nav-item">
+                          <li class="nav-item">
                               <a href="./custom_notification.php" class="nav-link">
                                   <p>Custom Notification</p>
                               </a>

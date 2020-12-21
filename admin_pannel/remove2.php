@@ -1,3 +1,4 @@
+<!-- NGO_event_add_content -->
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->

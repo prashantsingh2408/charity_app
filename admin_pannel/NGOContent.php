@@ -61,10 +61,10 @@
                             <div class='btn-group btn-group-sm'>
 
 
-                                <form id='form1' method='get' action="NGO_event_add.php">
+                                <!-- <form id='form1' method='get' action="NGO_event_add.php">
                                     <button form='form1' type="submit" name='id' value='<?= $id ?>' class="btn btn-info">Add Event
                                     </button>
-                                </form>
+                                </form> -->
                                 <form id='form2' method='get' action="NGOEdit.php">
                                     <button form='form2' type="submit" name='id' value='<?= $id ?>' class="btn btn-info"><i class="fas fa-edit"></i>
                                     </button>
