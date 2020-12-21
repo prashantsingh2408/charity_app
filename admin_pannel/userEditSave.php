@@ -67,7 +67,6 @@ $id = $_POST['id'];
       echo "Sorry, only JPG, JPEG, PNG, GIF file are allowed.";
       $uploadOk = 0;
    }
-
    // Check if $uploadOk is set to 0 by an error message
    if ($uploadOk == 0) {
       echo "Sorry, your file was not uploaded.";

@@ -24,14 +24,22 @@
         </div>
         <div class="card-body">
           <form action='./league_add_save.php' method="POST" enctype="multipart/form-data" id='editForm'>
+            
+            <!-- Laegue State -->
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-fist-raised"></i>
+                  &ensp;League State
+                </span>
+              </div>
+              <input required='true' required='true' name='state' type="text" class="form-control" placeholder="Raised">
+            </div>
 
-            <!-- league -->
- 
 
             <!-- raised -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-envelope"></i>
+                <span class="input-group-text"><i class="fas fa-rupee-sign"></i>
                   &ensp;Rs Raised
                 </span>
               </div>

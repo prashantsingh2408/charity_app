@@ -60,6 +60,7 @@
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="./user.php" class="nav-link">
+                                  &nbsp
                                   <i class="nav-icon fas fa-user"></i>
                                   <p>Users</p>
                               </a>
@@ -69,35 +70,37 @@
 
                           <li class="nav-item">
                               <a href="./NGO.php" class="nav-link">
+                                  &nbsp
                                   <i class="nav-icon fas fa-university"></i>
-                                  <!-- <i class="far fa-circle nav-icon"></i> -->
                                   <p>NGO & Events</p>
-                                  <!-- <i class="nav-icon fas fa-calendar-alt"></i> -->
-
                               </a>
                           </li>
                       </ul>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="./addGoals.php" class="nav-link">
+                                  &nbsp
                                   <i class="nav-icon fas fa-bullseye"></i>
                                   <p>Add Goals</p>
                               </a>
                           </li>
                           <li class="nav-item">
                               <a href="./achievement.php" class="nav-link">
+                                  &nbsp
                                   <i class="nav-icon fas fa-trophy"></i>
                                   <p>Achievement</p>
                               </a>
                           </li>
                           <li class="nav-item">
                               <a href="./stepRate.php" class="nav-link">
+                                  &nbsp
                                   <i class="nav-icon fas fa-shoe-prints"></i>
                                   <p>Step Rate</p>
                               </a>
                           </li>
                           <li class="nav-item">
                               <a href="./team.php" class="nav-link">
+                                  &nbsp
                                   <i class="nav-icon fas fa-users"></i>
                                   <p>Team</p>
                               </a>
@@ -105,19 +108,24 @@
 
                           <li class="nav-item">
                               <a href="./league.php" class="nav-link">
+                                  &nbsp
                                   <i class="fas fa-skating nav-icon"></i>
                                   <p>League</p>
                               </a>
                           </li>
 
-                          <!-- <li class="nav-item">
+                          <li class="nav-item">
                               <a href="./custom_notification.php" class="nav-link">
+                                  &nbsp
+                                  <i class="fas fa-flag-checkered nav-icon"></i>
                                   <p>Custom Notification</p>
                               </a>
                           </li>
-                          
+
                           <li class="nav-item">
                               <a href="./feed.php" class="nav-link">
+                                  &nbsp
+                                  <i class="fas fa-rss-square nav-icon"></i>
                                   <p>Feed</p>
                               </a>
                           </li> -->
@@ -137,18 +145,21 @@
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="./preloader.php" class="nav-link">
+                                  &nbsp
                                   <i class="fas fa-spinner nav-icon"></i>
                                   <p>Preloader</p>
                               </a>
                           </li>
                           <li class="nav-item">
                               <a href="./advertisements.php" class="nav-link">
+                                  &nbsp
                                   <i class="fas fa-ad nav-icon"></i>
                                   <p>Advertisements</p>
                               </a>
                           </li>
                           <li class="nav-item">
                               <a href="./change_logo.php" class="nav-link">
+                                  &nbsp
                                   <i class="fas fa-images nav-icon"></i>
                                   <p>Change Logo Admin</p>
                               </a>
