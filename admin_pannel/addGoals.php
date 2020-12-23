@@ -22,59 +22,62 @@
 
 
     <!-- For adding Goals -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+    <!-- bug -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
+    <!-- /bug -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
         function trash(name) {
+            alert(name);
             $('#' + name).remove();
 
             $.post('goalRemove.php', {
                     name: name
                 },
-                function(data, status) {
-                }
+                function(data, status) {}
             )
         }
 
-    //     $(document).ready(function() {
+        //     $(document).ready(function() {
 
-    //         $('#add_details').on('submit', function(event) {
-    //             event.preventDefault();
-    //             $.ajax({
-    //                 url: "addGoal.php",
-    //                 method: "POST",
-    //                 data: $(this).serialize(),
-    //                 dataType: "json",
-    //                 beforeSend: function() {
-    //                     $('#add').attr('disabled', 'disabled');
-    //                 },
-    //                 success: function(data) {
-    //                     $('#add').attr('disabled', false);
-    //                     if (data.goal_name) {
-    //                         window.location.href = "addGoals.php";
+        //         $('#add_details').on('submit', function(event) {
+        //             event.preventDefault();
+        //             $.ajax({
+        //                 url: "addGoal.php",
+        //                 method: "POST",
+        //                 data: $(this).serialize(),
+        //                 dataType: "json",
+        //                 beforeSend: function() {
+        //                     $('#add').attr('disabled', 'disabled');
+        //                 },
+        //                 success: function(data) {
+        //                     $('#add').attr('disabled', false);
+        //                     if (data.goal_name) {
+        //                         window.location.href = "addGoals.php";
 
-    //                         // var html = '<tr>';
-    //                         // html += '<td>' + data.goal_name + '</td>';
-    //                         // html += '<td>' + data.goal_value + '</td>';
-    //                         // html += "<td class='pull-right'>" + '' + '<td>';
-    //                         // html += '<button';
-    //                         // html += " type='submit";
-    //                         // html += " class='text-right btn btn-danger'";
-    //                         // html += " value='13'";
+        //                         // var html = '<tr>';
+        //                         // html += '<td>' + data.goal_name + '</td>';
+        //                         // html += '<td>' + data.goal_value + '</td>';
+        //                         // html += "<td class='pull-right'>" + '' + '<td>';
+        //                         // html += '<button';
+        //                         // html += " type='submit";
+        //                         // html += " class='text-right btn btn-danger'";
+        //                         // html += " value='13'";
 
-    //                         // html += ">";
-    //                         // html += "<i class='fa fa-trash'></i>";
-    //                         // html += "</button>"
-    //                         // $('#tbody').prepend(html);
-    //                         // $('#tbody')[0].reset();
-    //                     }
-    //                 }
-    //             })
-    //         });
+        //                         // html += ">";
+        //                         // html += "<i class='fa fa-trash'></i>";
+        //                         // html += "</button>"
+        //                         // $('#tbody').prepend(html);
+        //                         // $('#tbody')[0].reset();
+        //                     }
+        //                 }
+        //             })
+        //         });
 
-    //     });
-     </script>
+        //     });
+    </script>
     <!-- /For add Goals -->
 
     <!-- For removing goal -->
@@ -172,8 +175,6 @@
         //             //alert(data);
         //         });
         // }
-
-        
     </script>
     <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
