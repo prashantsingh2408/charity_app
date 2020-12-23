@@ -7,7 +7,7 @@
     ?>
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index.php" class="brand-link">
+      <a href="change_logo.php" class="brand-link">
           <img src="<?= $rows['logo_impact'] ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
           <span class="brand-text font-weight-light">Impact</span>
       </a>
@@ -17,7 +17,6 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
               <div class="image">
-
                   <img src="<?= $rows['logo_webixun'] ?>" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
@@ -31,7 +30,7 @@
                         $row = $result->fetch_assoc();
                         $name = $row['name'];
                     }
-                    echo "<a href='#' class='d-block'>" . $name . "</a>"
+                    echo "<a href='change_logo.php' class='d-block'>" . $name . "</a>"
                     ?>
               </div>
           </div>
@@ -40,11 +39,10 @@
           <nav class="mt-2">
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                   <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                    with font-awesome or any other icon font library -->
                   <li class="nav-item">
-
-                      <a href="./dashboard.php" class="nav-link deactive">
-                          <i class="nav-icon    fas fa-tachometer-alt"></i>
+                      <a id='dashboard' href="./dashboard.php" class="nav-link">
+                          <i class="nav-icon  fas fa-tachometer-alt"></i>
                           <p>Dashboard</p>
                       </a>
                   </li>
@@ -84,6 +82,13 @@
                                   <p>Add Goals</p>
                               </a>
                           </li>
+                          <!-- <li class="nav-item">
+                              <a href="./addGoals2.php" class="nav-link">
+                                  &nbsp
+                                  <i class="nav-icon fas fa-trophy"></i>
+                                  <p>test</p>
+                              </a>
+                          </li> -->
                           <li class="nav-item">
                               <a href="./achievement.php" class="nav-link">
                                   &nbsp
@@ -114,15 +119,15 @@
                               </a>
                           </li>
 
-                          <li class="nav-item">
+                          <!-- <li class="nav-item">
                               <a href="./custom_notification.php" class="nav-link">
                                   &nbsp
                                   <i class="fas fa-flag-checkered nav-icon"></i>
                                   <p>Custom Notification</p>
                               </a>
-                          </li>
+                          </li> -->
 
-                          <li class="nav-item">
+                          <!-- <li class="nav-item">
                               <a href="./feed.php" class="nav-link">
                                   &nbsp
                                   <i class="fas fa-rss-square nav-icon"></i>
@@ -136,7 +141,7 @@
                   <!-- Site Edit -->
                   <li class="nav-item has-treeview menu-open">
                       <a href="#" class="nav-link ">
-                          <i class="nav-icon fas fa-tachometer-alt"></i>
+                          <i class="nav-icon fas fa-edit"></i>
                           <p>
                               Site Edit
                               <i class="right fas fa-angle-left"></i>
@@ -187,7 +192,6 @@
                           <!-- /For proving some space after...
                                because it may hide in browser footer
                           -->
-
                       </ul>
                   </li>
                   <!-- /Site Edit -->

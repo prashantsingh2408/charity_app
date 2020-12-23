@@ -10,6 +10,9 @@ $weight = $_POST['weight'];
 $title = $_POST['title'];
 $target_steps = $_POST['target_steps'];
 $todays_steps = $_POST['todays_steps'];
+$workouts = $_POST['workouts'];
+$current_streak = $_POST['current_streak'];
+$max_streak =$_POST['max_streak'];
 //Convert date
 // birthdays
 // Convert date
@@ -98,7 +101,10 @@ $sql = "UPDATE user
             weight = $weight,
             birthday = '$datesql',
             target_steps = $target_steps,
-            todays_steps = $todays_steps
+            todays_steps = $todays_steps,
+            workouts=$workouts,
+            current_streak = $current_streak,
+            max_streak = $max_streak
          WHERE id = $id";
 // echo $sql;
 $result = $conn->query($sql);

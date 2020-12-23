@@ -25,7 +25,6 @@ $row = $result->fetch_assoc();
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
-      <!-- Small boxes (Stat box) -->
       <!-- row 1 -->
       <div class="row">
         <!-- .col 1 User Registration-->
@@ -82,7 +81,7 @@ $row = $result->fetch_assoc();
             <div class="icon">
               <!-- <i class="ion ion-stats-bars"></i> -->
             </div>
-            <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="./NGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col 2 -->
@@ -109,13 +108,10 @@ $row = $result->fetch_assoc();
           </div>
         </div>
         <!-- ./col 3 -->
-      </div>
-      <!-- /.row 1 -->
 
-      <!-- row 2 -->
-      <div class='row'>
-        <!--col 1 Total No of Team Members  -->
+        <!-- col 4 -->
         <div class="col-lg-3 col-6">
+
           <!-- small box -->
           <!--Total No of Team Members  -->
           <div class="small-box bg-success">
@@ -136,9 +132,9 @@ $row = $result->fetch_assoc();
           </div>
           <!-- /Total No of Team Members  -->
         </div>
-        <!--/ col 1 Total No of Team Members  -->
+        <!-- col 4 -->
 
-        <!--col 2 Total No goal available  -->
+        <!--col 5 Total No goal available  -->
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-success">
@@ -158,14 +154,15 @@ $row = $result->fetch_assoc();
             <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!--/col 2 Total No goal available  -->
+        <!--/col 5 Total No goal available  -->
       </div>
-      <!-- /.row 2 -->
+      <!-- /.row 1 -->
+
 
 
       <!-- row 3 -->
       <div class="row">
-        <div class="col">
+      <div class="col ">
           <!-- Hall of fame -->
           <!-- Base on total_donation_steps -->
           <!-- Fetch hall of fame -->
@@ -176,7 +173,7 @@ $row = $result->fetch_assoc();
 
           $total_users = $result->num_rows;
           ?>
-          <div class="col-md-6">
+          <div class="col">
             <!-- USERS LIST -->
             <div class="card">
               <div class="card-header">

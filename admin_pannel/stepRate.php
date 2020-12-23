@@ -38,71 +38,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
-    // function remove($id) {
-    //   $("#" + $id).remove();
-    //   id = $id;
-    //   $.post("userRemove.php", {
-    //       id: id,
-    //     },
-    //     function(data, status) {
-    //       //alert(data);
-    //     });
-    // }
-
-    // function NGOUpdate(id) {
-
-    //   var c = document.getElementById(id).children;
-    //   var i;
-    //   var obj = {};
-    //   //Save value in obj
-    //   for (i = 0; i < c.length; i = i + 2) {
-    //     key = c[i].innerText;
-    //     value = c[i + 1].value;
-    //     if (value == '') {
-    //       value = c[i + 1].placeholder;
-    //     }
-    //     obj[key] = value;
-    //   }
-    //   $.post('NGOUpdate.php',
-    //     obj,
-    //     function(data, status) {
-    //       alert(data);
-    //     });
-    // }
-
-    // function NGOAdd(id) {
-    //For testing
-    //alert('testing');
-    // var c = document.getElementById(id).children;
-    // var i;
-    // var obj = {};
-    //Save value in obj
-    // for (i = 0; i < c.length; i = i + 2) {
-    //   //alert(c.length);
-    //   key = c[i].innerText;
-    //   value = c[i + 1].value;
-    //   if (value == '') {
-    //     value = c[i + 1].placeholder;
-    //   }
-    //   obj[key] = value;
-    //testing
-    // alert(i + ' ' + key + obj[key]);
-    // }
-    // alert('testing');
-    //For testing
-    // alert(obj['id']);
-    //    for (const property in obj){
-    //         alert(property + obj[property]);
-    //    }
-    //   $.post('NGOAdd.php',
-    //     obj,
-    //     function(data, status) {
-    //       alert(data);
-    //       //Hide Form again after adding
-    //       document.getElementById('hideAddForm').style.display = 'none';
-    //     });
-    // }
-
     function submit_rate_btn_km() {
       // alert('hi');
       // document.getElementById('submitRateMessage').style.display = 'block';
@@ -117,9 +52,9 @@
             document.getElementById('set_rate_km_text').innerHTML = data + 'Enter Your input';
 
           } else {
-            document.getElementById('set_rate_km_box').style.display = 'block'
-            document.getElementById('set_rate_km_text').innerHTML = data + ' Km saved';
-            document.getElementById('current_rate_area').innerHTML = 'Current Rate ' + data + ' Rs/Km';
+            // document.getElementById('set_rate_km_box').style.display = 'block'
+            // document.getElementById('set_rate_km_text').innerHTML = data + ' Km saved';
+            document.getElementById('current_rate_area').innerHTML = 'Current Rate ' + data + ' Rs/Km Updated';
           }
           // $('#' + 'set_rate_km_text').value = data;
         }
@@ -137,13 +72,16 @@
           unit: unit
         },
         function(data, status) {
+          // if filed is empty
           if (data == '') {
             document.getElementById('set_rate_m_box').style.display = 'block'
             document.getElementById('set_rate_m_text').innerHTML = data + 'Enter Your input';
-          } else {
-            document.getElementById('set_rate_m_box').style.display = 'block'
-            document.getElementById('set_rate_m_text').innerHTML = data + ' m saved';
-            document.getElementById('current_rate_area').innerHTML = 'Current Rate ' + data + ' Rs/Km';
+          }
+          // if not empty 
+          else {
+            // document.getElementById('set_rate_m_box').style.display = 'block'
+            // document.getElementById('set_rate_m_text').innerHTML = data + ' m saved';
+            document.getElementById('current_rate_area').innerHTML = 'Current Rate ' + data + ' Rs/Km Updated';
           }
           // $('#' + 'set_rate_km_text').value = data;
         }

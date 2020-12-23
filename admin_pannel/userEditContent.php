@@ -202,6 +202,48 @@ if ($result = $conn->query($sql)) {
                             </div>
                         </div>
 
+                        <!-- Workouts -->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <!-- <i class="fas fa-weight"></i> -->
+                                    workouts
+                                </span>
+                            </div>
+                            <input name='workouts' type="height" class="form-control" placeholder="Workouts" value="<?= $row['workouts'] ?>">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Km</span>
+                            </div>
+                        </div>
+
+                        <!-- current_streak -->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <!-- <i class="fas fa-weight"></i> -->
+                                    Current Streak
+                                </span>
+                            </div>
+                            <input name='current_streak' type="height" class="form-control" placeholder="Current Streak" value="<?= $row['current_streak'] ?>">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Km</span>
+                            </div>
+                        </div>
+
+                        <!-- max_streak -->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <!-- <i class="fas fa-weight"></i> -->
+                                    Max Streak
+                                </span>
+                            </div>
+                            <input name='max_streak' type="height" class="form-control" placeholder="Max Streak" value="<?= $row['max_streak'] ?>">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Km</span>
+                            </div>
+                        </div>
+
                         <!-- Pic show and upload -->
                         <div class='row'>
                             <div class='col-4'>
@@ -254,7 +296,7 @@ if ($result = $conn->query($sql)) {
                     </div>
                     <!-- END Model -->
 
-                    
+
 
                 </div>
                 <!-- /.card-body -->
