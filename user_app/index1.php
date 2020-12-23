@@ -84,9 +84,12 @@ if ($result->num_rows > 0) {
                     WORKOUT</a>
             </div>
             <div class="card-overlay"></div>
+            <?php
 
-            <img class="img-fluid img-type-1" src="<?= $ngo['img']; ?>"
-                onclick="location.href='cause?token=<?= $t_id; ?>'" alt="<?= $ngo['img']; ?>">
+                    $img_src = ' ../admin_pannel/' . $ngo['img'];
+                    ?>
+            <img class="img-fluid img-type-1" src="<?= $img_src; ?>" onclick="location.href='cause?token=<?= $t_id; ?>'"
+                alt="<?= $img_src; ?>">
         </div>
         <?php
             }
