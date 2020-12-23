@@ -32,7 +32,7 @@ function profile_check()
            header("location: login-7.php");   
     }
     else {
-        header("location: index.php");   
+        header("location: index1.php");   
     }
 
        
@@ -42,5 +42,3 @@ function profile_check()
     
     
 }
-
-?>

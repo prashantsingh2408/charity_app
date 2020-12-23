@@ -1,52 +1,61 @@
 <head>
 
     <!-- BOOTSTRAP -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <?php session_start(); ?>
 
     <!-- Slider -->
     <style>
-        .slidecontainer {
-            width: 100%;
-        }
+    .slidecontainer {
+        width: 100%;
+    }
 
-        .slider {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 15px;
-            border-radius: 5px;
-            background: #d3d3d3;
-            outline: none;
-            opacity: 0.7;
-            -webkit-transition: 0.2s;
-            transition: opacity 0.2s;
-        }
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 15px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+    }
 
-        .slider:hover {
-            opacity: 1;
-        }
+    .slider:hover {
+        opacity: 1;
+    }
 
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #4caf50;
-            cursor: pointer;
-        }
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #4caf50;
+        cursor: pointer;
+    }
 
-        .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #4caf50;
-            cursor: pointer;
-        }
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #4caf50;
+        cursor: pointer;
+    }
     </style>
 
 
@@ -55,77 +64,68 @@
     <!-- /bootstrap -->
 
     <script>
-        dashboard = document.getElementById('dashboard');
-        dashboard.getEventListender('click', function() {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-        });
+    function remove($id) {
+        $("#" + $id).remove();
+        id = $id;
+        $.post("userRemove.php", {
+                id: id,
+            },
+            function(data, status) {
+                //alert(data);
+            });
+    }
 
-        });
+    function updateUserInfo(id) {
 
-        function remove($id) {
-            $("#" + $id).remove();
-            id = $id;
-            $.post("userRemove.php", {
-                    id: id,
-                },
-                function(data, status) {
-                    //alert(data);
-                });
-        }
-
-        function updateUserInfo(id) {
-
-            var c = document.getElementById(id).children;
-            var i;
-            var obj = {};
-            //Save value in obj
-            for (i = 0; i < c.length; i = i + 2) {
-                key = c[i].innerText;
-                value = c[i + 1].value;
-                if (value == '') {
-                    value = c[i + 1].placeholder;
-                }
-                obj[key] = value;
+        var c = document.getElementById(id).children;
+        var i;
+        var obj = {};
+        //Save value in obj
+        for (i = 0; i < c.length; i = i + 2) {
+            key = c[i].innerText;
+            value = c[i + 1].value;
+            if (value == '') {
+                value = c[i + 1].placeholder;
             }
-            $.post('userUpdate.php',
-                obj,
-                function(data, status) {
-                    //alert(data);
-                });
+            obj[key] = value;
         }
+        $.post('userUpdate.php',
+            obj,
+            function(data, status) {
+                //alert(data);
+            });
+    }
 
-        function userAdd(id) {
-            //For testing
-            // alert('testing');
-            var c = document.getElementById(id).children;
-            var i;
-            var obj = {};
-            //Save value in obj
-            for (i = 0; i < 37; i = i + 2) {
-                // alert(c.length);
-                key = c[i].innerText;
-                value = c[i + 1].value;
-                if (value == '') {
-                    value = c[i + 1].placeholder;
-                }
-                obj[key] = value;
-                //    alert('id=' + i + ' ' + key + obj[key] + obj['id']);
+    function userAdd(id) {
+        //For testing
+        // alert('testing');
+        var c = document.getElementById(id).children;
+        var i;
+        var obj = {};
+        //Save value in obj
+        for (i = 0; i < 37; i = i + 2) {
+            // alert(c.length);
+            key = c[i].innerText;
+            value = c[i + 1].value;
+            if (value == '') {
+                value = c[i + 1].placeholder;
             }
-            //For testing
-            // alert(obj['id']);
-            //    for (const property in obj){
-            //         alert(property + obj[property]);
-            //    }
-            $.post('userAdd.php',
-                obj,
-                function(data, status) {
-                    confirm('Added');
-                    //Hide Form again after adding
-                    document.getElementById('hideAddForm').style.display = 'none';
-                });
+            obj[key] = value;
+            //    alert('id=' + i + ' ' + key + obj[key] + obj['id']);
         }
+        //For testing
+        // alert(obj['id']);
+        //    for (const property in obj){
+        //         alert(property + obj[property]);
+        //    }
+        $.post('userAdd.php',
+            obj,
+            function(data, status) {
+                confirm('Added');
+                //Hide Form again after adding
+                document.getElementById('hideAddForm').style.display = 'none';
+            });
+    }
     </script>
 
 

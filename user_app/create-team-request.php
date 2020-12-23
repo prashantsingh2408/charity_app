@@ -1,47 +1,83 @@
 <?php
+require "config2.php";
 
-require_once 'config.php';
-include 'header.php';
-if(isset($_POST['teamname']) && isset($_POST['teampurpose']))
-{
-//    alert("yes");
+// Create a new id
+$sql = "SELECT COUNT(id) FROM teams";
+$result = $conn->query($sql);
+$rows = $result->fetch_assoc();
+$id_last = $rows['COUNT(id)'];
+$id_new = $id_last + 1;
+// END Create a new id_new
+echo $id_new;
 
-    $teamname=$_POST['teamname'];
-    $teampurpose=$_POST['teampurpose'];
-        
-                  
-    $sql=$link->prepare("SELECT t_name from teams where t_name=?" );
-        $sql->bind_param('s',$teamname);
-        $sql->execute();
-        $result=$sql->get_result();
-        $row=$result->fetch_array(MYSQLI_ASSOC);
-       
-        if(($row['t_name']==$teamname) )
-        {
-            $response['msg']='exists';
-        }
-        else{
-                $member=0;
-                $stmt=$link->prepare("INSERT INTO teams(t_name,t_fn_leader,t_ln_leader,t_img,t_members,t_purpose,user_id) VALUES (?,?,?,?,?,?,?)" );
-                $stmt->bind_param('ssssisi',$teamname,$firstname,$lastname,$pic,$member,$teampurpose,$id);
-                if($stmt->execute())
-                {
-                    $response['msg']='ok';
-                    // echo "Registered Successfully.Login Now!";
-                }
-                else{
-                    $response['msg']='something went wrong';
-                // echo "Something went wrong. Please try again";
-                   }
-            }
-        
-    
-  
-    echo json_encode($response);
+//Insert team content into db
+$name = $_POST['name'];
+$team_leader = $_POST['team_leader'];
+$team_members = $_POST['team_members'];
+
+$sql = "INSERT INTO teams(id,name,team_leader,team_members) VALUE($id_new,'$name','$team_leader','$team_members')";
+// echo $sql;
+$result = $conn->query($sql);
+
+
+//// Input file
+$target_dir = "uploades/";
+$target_file = $target_dir . basename($_FILES['pic']['name']);
+$uploadOk = 1;
+echo $target_file;
+$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+//Check if image file is a actual image or
+//fake image
+if (isset($_POST['submit'])) {
+    $check = getimagesize($_FILES['pic']['tmp_name']);
+    //Check for img or not
+    if ($check != false) {
+        echo "File is image -" . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not as image.";
+        $uploadOk = 0;
+    }
 }
-else
-{
-    $response['msg']='Enter Teamname and purpose';
-    echo json_encode($response);
+
+// Check if file already exists
+if (file_exists($target_file)) {
+    // echo "Sorry, file already exists.";
+    $uploadOk = 0;
 }
-?>     
+
+// Check file size
+if ($_FILES['pic']['size'] > 500000) {
+    // echo "Sorry, your file is too large.";
+    $uploadOK = 0;
+}
+
+// Allow certain file formats
+if (
+    $imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg'
+    && $imageFileType != 'gif'
+) {
+    echo "Sorry, only JPG, JPEG, PNG, GIF file are allowed.";
+    $uploadOk = 0;
+}
+
+// Check if $uploadOk is set to 0 by an error message
+if ($uploadOk == 0) {
+    // echo "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES['pic']['tmp_name'], $target_file)) {
+        // echo "The file " . htmlspecialchars(basename($_FILES['pic']['name'])) . "has been uploaded.";
+    } else {
+        // echo "Sorry, there was an error uploading your file. ";
+    }
+}
+
+// save location in db
+$sql = "UPDATE teams SET pic = '$target_file' WHERE id = $id_new";
+$conn->query($sql);
+
+////END Input file
+
+header("location:teams-view.php");
