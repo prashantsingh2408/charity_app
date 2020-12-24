@@ -94,7 +94,7 @@
                             </tr>
 
                             <tr>
-                                <td>Change Makers</td>
+                                <td>No of Change Makers</td>
                                 <td><?= $row['change_makers'] ?></td>
                             </tr>
 

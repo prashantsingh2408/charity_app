@@ -46,7 +46,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">@ First Name</span>
                                     </div>
-                                    <input required='true' name='firstname' type="text" class="form-control" placeholder="Username" required="true">
+                                    <input required='true' name='firstname' type="text" class="form-control" placeholder="Username" required="true" required>
                                 </div>
                             </div>
                             <!-- User lastname-->
@@ -68,7 +68,7 @@
                                     &ensp;Phone
                                 </span>
                             </div>
-                            <input required='true' required='true' name='phone' class="form-control" placeholder="Phone">
+                            <input required='true' type='number' required='true' name='phone' class="form-control" placeholder="Phone" pattern='[7-9]{2}\d{7}'>
                         </div>
 
                         <!-- Email -->
