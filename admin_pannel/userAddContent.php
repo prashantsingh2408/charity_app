@@ -167,8 +167,8 @@
                             </div>
                         </div>
 
-                    <!-- Upload Pic -->
-                    <!-- TODO: Placeholder Img need to implement here -->
+                        <!-- Upload Pic -->
+                        <!-- TODO: Placeholder Img need to implement here -->
                         <div class="form-group mb-3">
                             <label for="exampleFormControlFile1">Photo</label>
                             <input type="file" name="pic" class="form-control" />
