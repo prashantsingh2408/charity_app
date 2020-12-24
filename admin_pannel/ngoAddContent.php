@@ -23,26 +23,28 @@
                 <form id='NGOAddForm' method='POST' action='NGOAddSave.php' enctype="multipart/form-data">
                     <div class="card-body">
 
+
+                        <label>NGO</label>
                         <!-- name_nogs -->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Name NGOs</span>
                             </div>
-                            <input name='name_ngos' type="text" class="form-control" placeholder="NGO Name">
+                            <input name='name_ngos' type="text" class="form-control" placeholder="NGO Name" required>
                         </div>
                         <!--Partner -->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Partner</span>
                             </div>
-                            <input name='partner' type="text" class="form-control" placeholder="Partner">
+                            <input name='partner' type="text" class="form-control" placeholder="Partner" required>
                         </div>
                         <!-- current_amount -->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Current amount</span>
                             </div>
-                            <input name='current_amount' type="text" class="form-control" placeholder="Current amount">
+                            <input name='current_amount' type="number" class="form-control" pattern="[0-9]+" placeholder="Current amount" required>
                         </div>
                         <!-- current_amount -->
 
@@ -51,96 +53,109 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Total Goal</span>
                             </div>
-                            <input name='total_goal' type="text" class="form-control" placeholder="Total Goal">
+                            <input name='total_goal' type="number" class="form-control" placeholder="Total Goal" pattern="[0-9]+" required>
                         </div>
-
-
-                        <!-- no_of_workout -->
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">No of workout</span>
-                            </div>
-                            <input name='no_of_workout' type="text" class="form-control" placeholder="No of workout">
-                        </div>
-                        <!-- no_of_workout -->
 
                         <!-- description -->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Description</span>
                             </div>
-                            <input name='description' type="text" class="form-control" placeholder="Description">
+                            <input name='description' type="text" class="form-control" placeholder="Description" required>
                         </div>
                         <!-- description -->
+
 
                         <!-- about -->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">About</span>
                             </div>
-                            <input name='about' type="text" class="form-control" placeholder="About">
+                            <input name='about' type="text" class="form-control" placeholder="About" required>
                         </div>
 
-                        <!-- amount_raised-->
-                        <div class='col'>
-                            <div class="input-group mb-3 ">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Amount raised</span>
-                                </div>
-                                <input name='amount_raised' type="text" class="form-control" placeholder="amount_raised">
+                        <label> Event </label>
+
+                        <!-- events-->
+                        <div class="input-group mb-3 ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Event</span>
                             </div>
+                            <input name='events' type="text" class="form-control" placeholder="Event" required>
+                        </div>
+                        <!-- /events -->
+
+                        <!-- no_of_workout -->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">No of workout</span>
+                            </div>
+                            <input name='no_of_workout' type="number" class="form-control" placeholder="No of workout" pattern='[0-9]+' required>
+                        </div>
+                        <!-- no_of_workout -->
+
+
+
+
+                        <!-- amount_raised-->
+                        <div class="input-group mb-3 ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Amount raised</span>
+                            </div>
+                            <input name='amount_raised' type="number" class="form-control" placeholder="amount_raised" pattern='[0-9]+' required>
                         </div>
                         <!-- /amount_raised -->
 
                         <!-- on_of_days-->
-                        <div class='col'>
-                            <div class="input-group mb-3 ">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">No of Days</span>
-                                </div>
-                                <input name='on_of_days' type="text" class="form-control" placeholder="on_of_days">
+                        <div class="input-group mb-3 ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">No of Days</span>
                             </div>
+                            <input name='on_of_days' type="number" class="form-control" placeholder="on_of_days" pattern='[0-9]+' required>
                         </div>
                         <!-- /on_of_days -->
 
-                        <!-- events-->
-                        <div class='col'>
-                            <div class="input-group mb-3 ">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Event</span>
-                                </div>
-                                <input name='events' type="text" class="form-control" placeholder="Event">
+                        <!-- timespent-->
+                        <div class="input-group mb-3 ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Time Spent</span>
                             </div>
+                            <input name='timespent' type="number" class="form-control" placeholder="Time Spent" pattern='[0-9]+' required>
                         </div>
-                        <!-- /events -->
+                        <!-- /timespent -->
 
                         <!-- change_makers-->
-                        <div class='col'>
-                            <div class="input-group mb-3 ">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Change Makers</span>
-                                </div>
-                                <input name='change_makers' type="text" class="form-control" placeholder="Change Makers">
+                        <div class="input-group mb-3 ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">No of Change Makers</span>
                             </div>
+                            <input name='change_makers' type="text" class="form-control" placeholder="Change Makers" required>
                         </div>
                         <!-- /change_makers -->
 
-                        <!-- timespent-->
-                        <div class='col'>
-                            <div class="input-group mb-3 ">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Time Spent</span>
-                                </div>
-                                <input name='timespent' type="text" class="form-control" placeholder="Time Spent">
+                        <!-- ngo_unique_var-->
+                        <div class="input-group mb-3 ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">NOG Unique Variable</span>
                             </div>
+                            <input name='ngo_unique_var' type="text" class="form-control" placeholder="Event Unique Variable" required>
                         </div>
-                        <!-- /timespent -->
+                        <!-- /ngo_unique_var -->
+
+                        <!-- event_members-->
+                        <div class="input-group mb-3 ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Event Members</span>
+                            </div>
+                            <input name='event_members' type="number" class="form-control" placeholder="Event Memebers" pattern='[0-9]+' required>
+                        </div>
+                        <!-- /event_members -->
 
                         <!-- Upload Pic -->
                         <!-- TODO: Placeholder Img need to implement here -->
                         <div class="form-group mb-3">
                             <label for="exampleFormControlFile1">Photo</label>
-                            <input type="file" name="img" class="form-control" />
+                            <input type="file" name="img" class="form-control" required/>
                             <!-- <input type="submit" name="submit" value="Upload" class="form-control-file" id="exampleFormControlFile1"> -->
                         </div>
 
