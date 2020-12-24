@@ -10,9 +10,9 @@ $stmt_p->execute();
 $result_p = $stmt_p->get_result();
 //$row_p=$result_p->fetch_array(MYSQLI_ASSOC);
 if ($result_p->num_rows > 0) {
-   while ($row_p = $result_p->fetch_assoc()) {
-      $charity_overview[] = $row_p;
-   }
+    while ($row_p = $result_p->fetch_assoc()) {
+        $charity_overview[] = $row_p;
+    }
 }
 $stmt_p->close();
 $stmt_sum = $link->prepare("SELECT sum(donation) as donate FROM ngo_count WHERE user_id=? group by ngo_id;");
@@ -21,9 +21,9 @@ $stmt_sum->execute();
 $result_sum = $stmt_sum->get_result();
 //$row_p=$result_p->fetch_array(MYSQLI_ASSOC);
 if ($result_sum->num_rows > 0) {
-   while ($row_sum = $result_sum->fetch_assoc()) {
-      $sum[] = $row_sum;
-   }
+    while ($row_sum = $result_sum->fetch_assoc()) {
+        $sum[] = $row_sum;
+    }
 }
 $stmt_sum->close();
 
@@ -34,9 +34,9 @@ $stmt_a->execute();
 $result_a = $stmt_a->get_result();
 //$row_p=$result_p->fetch_array(MYSQLI_ASSOC);
 if ($result_a->num_rows > 0) {
-   while ($row_a = $result_a->fetch_assoc()) {
-      $achievements[] = $row_a;
-   }
+    while ($row_a = $result_a->fetch_assoc()) {
+        $achievements[] = $row_a;
+    }
 }
 $stmt_a->close();
 
@@ -90,7 +90,7 @@ $stmt_a->close();
                         <div class="w-75">
                             <h1 class="mb-0 text-muted"><?= $current_streak  ?></h1>
                             <p class="mb-0 text-muted" style="font-size:10px">Current Streak</p>
-                            <h1 class="mb-0 text-muted">0</h1>
+
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ $stmt_a->close();
                         <div class="w-75 pl-3">
                             <h1 class="mb-0 text-muted"><?= $max_streak ?></h1>
                             <p class="mb-0 text-muted" style="font-size:10px">Max Streak</p>
-                            <h1 class="mb-0 text-muted">0</h1>
+
                         </div>
                     </div>
                 </div>
@@ -113,11 +113,11 @@ $stmt_a->close();
             <h1>Achievements</h1>
             <div class="row">
                 <?php
-            if (isset($achievements)) {
+                if (isset($achievements)) {
 
-               foreach ($achievements as $a) {
-                  if ($total_donation_steps > $a['steps']) {
-            ?>
+                    foreach ($achievements as $a) {
+                        if ($total_donation_steps > $a['steps']) {
+                ?>
                 <figure>
                     <img src="<?= $a['img'] ?>" style="height:10vh">
                     <figcaption>
@@ -125,20 +125,20 @@ $stmt_a->close();
                     </figcaption>
                 </figure>
                 <?php
-                  }
-               }
-            }
-            ?>
+                        }
+                    }
+                }
+                ?>
             </div>
         </div>
 
         <div class="divider divider-margins mb-1"></div>
         <div class="container-fluid">
             <div class="list-group list-custom-small">
-                <a href="in-progress">
+                <!--<a href="in-progress">
                     <span>IN-PROGRESS</span>
                     <i class="fa fa-angle-right"></i>
-                </a>
+                </a>-->
                 <a href="leaderboard">
                     <span>GLOBAL RANK (#9001)</span>
                     <i class="fa fa-angle-right"></i>
@@ -208,14 +208,14 @@ $stmt_a->close();
 
         <div class="row m-1">
             <?php
-         $index = 0;
-         if (isset($charity_overview)) {
+            $index = 0;
+            if (isset($charity_overview)) {
 
-            foreach ($charity_overview as $data) {
-               if (isset($sum)) {
+                foreach ($charity_overview as $data) {
+                    if (isset($sum)) {
 
 
-         ?>
+            ?>
 
 
             <div class="w-50">
@@ -226,20 +226,20 @@ $stmt_a->close();
                 </figure>
             </div>
             <?php
-                  $index = $index + 1;
-               }
+                        $index = $index + 1;
+                    }
+                }
             }
-         }
-         ?>
+            ?>
 
 
 
             <?php
-         if (isset($sum)) {
+            if (isset($sum)) {
 
-            foreach ($sum as $data) {
+                foreach ($sum as $data) {
 
-         ?>
+            ?>
 
 
             <!-- <p class="text-center">Rs <?= $data['donate'];   ?></p>
@@ -251,9 +251,9 @@ $stmt_a->close();
 
             <?php
 
+                }
             }
-         }
-         ?>
+            ?>
         </div>
     </div>
 
