@@ -38,7 +38,7 @@ require_once 'header.php';
                         <p>Steps Taken</p>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class=" col-4">
                     <div class="card rounded-s shadow-l text-center p-2">
                         <i class="fa fa-walking fa-lg"></i>
                         <h1><?= $max_streak ?></h1>

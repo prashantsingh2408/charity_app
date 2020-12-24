@@ -103,10 +103,6 @@ while ($row = $result->fetch_assoc()) {
     $conn->query("DELETE FROM teams WHERE id = $current_id");
     $conn->query("UPDATE teams SET id = $current_id WHERE id=$next_id");
 }
-
-
-
-
 // $sql_update = "UPDATE teams SET pic = '$target_file' WHERE id = $id_new";
 // $conn->query($sql_update);
 ////END Input file
@@ -161,17 +157,17 @@ while ($row = $result->fetch_assoc()) {
                                 $result = $conn->query($sql);
                                 while ($rows = $result->fetch_assoc()) {
                                 ?>
-                                <tr>
-                                    <td><?= $rows['id'] ?></td>
-                                    <td><?= $rows['state'] ?></td>
-                                    <td><?= $rows['name'] ?></td>
-                                    <td><?= $rows['team_leader'] ?></td>
-                                    <td><?= $rows['team_members'] ?></td>
-                                    <td><img src='<?= $rows['pic'] ?>' height='60'> </td>
-                                    <th>
-                                        <button class='btn btn-success '> <i class='fas fa-user-plus'></i> </button>
-                                    </th>
-                                </tr>
+                                    <tr>
+                                        <td><?= $rows['id'] ?></td>
+                                        <td><?= $rows['state'] ?></td>
+                                        <td><?= $rows['name'] ?></td>
+                                        <td><?= $rows['team_leader'] ?></td>
+                                        <td><?= $rows['team_members'] ?></td>
+                                        <td><img src='<?= $rows['pic'] ?>' height='60'> </td>
+                                        <th>
+                                            <button class='btn btn-success '> <i class='fas fa-user-plus'></i> </button>
+                                        </th>
+                                    </tr>
                                 <?php
                                 } ?>
                             </tbody>
