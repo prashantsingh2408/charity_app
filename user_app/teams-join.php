@@ -7,7 +7,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
-   // output data of each row
    while ($row = $result->fetch_assoc()) {
       $teams[] = $row;
    }
@@ -59,7 +58,6 @@ if ($result_o->num_rows > 0) {
          <p>Other teams</p>
          <?php
          if (isset($other_teams)) {
-
             foreach ($other_teams as $other_team) {
                $t_id = $other_team['id'];
          ?>
@@ -68,9 +66,7 @@ if ($result_o->num_rows > 0) {
                   <?= $other_team['t_name'] ?>
                   <span class="float-right"><?= $other_team['t_members'] ?> <i class="fa fa-users fa-lg" style="font-size:16px;color:black"></i></span>
                </a>
-
          <?php
-
             }
          }
          ?>

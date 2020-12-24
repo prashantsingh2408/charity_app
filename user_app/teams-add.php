@@ -13,15 +13,12 @@ require_once 'header.php';
         <!-- <a href="teams-join"
             class="btn btn-m btn-center-l bg-white text-dark text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4"> -->
         <form id='form' action='teams-view.php' method='post'>
-            <input type='submit' name='ushi_per_rho' value='JOIN & VIEW'
-                class="btn btn-m btn-center-l bg-white text-dark text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4">
+            <input type='submit' name='ushi_per_rho' value='JOIN & VIEW' class="btn btn-m btn-center-l bg-white text-dark text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4">
 
             </input>
         </form>
-        <!-- </form>
-        </a> -->
-        <a href="teams-create"
-            class="btn btn-m btn-center-l bg-highlight text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4">
+
+        <a href="teams-create" class="btn btn-m btn-center-l bg-highlight text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4">
             CREATE TEAM <i class="fa fa-lock"></i>
         </a>
     </div>
