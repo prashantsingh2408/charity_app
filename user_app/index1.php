@@ -26,7 +26,20 @@ if ($result->num_rows > 0) {
     }
 }
 ?>
+
 <div class="header header-fixed header-logo-center" style="border-bottom: solid 0px rgba(0,0,0,.0);box-shadow: 0 0px 0px 0 rgba(0,0,0,.0);">
+    <?php if ($current >500) {
+    ?>
+        <div class='row justify-content-center mt-2'>
+            <p class="">Steps available <span class="ml-1 float-right">
+                    <a href="donate_ngo.php" class="btn btn-s btn-center-l bg-highlight text-uppercase font-900 text-uppercase rounded-s shadow-xl d-inline">Donate
+                        Steps</a></span></p>
+        </div>
+    <?php
+    }
+    ?>
+
+
     <a href="index" class="header-title">Hi <?= $firstname; ?> !</a>
     <a href="feed" class="header-icon header-icon-1"><i class="fas fa-globe-asia"></i></a>
     <a href="notifications" class="header-icon header-icon-4"><i class="fas fa-bell"></i></a>

@@ -126,4 +126,10 @@ foreach ($_POST as $key => $value) {
     }
 }
 
+
+// Set NULL entry as 0 in db
+$sql = 'UPDATE user SET current_streak=0,max_streak=0 WHERE id=$id_new';
+$result = $conn->query($sql);
+// /Set NULL entry as 0 in db
+
 header("location:user.php");

@@ -20,7 +20,7 @@ if (!(auth())) {
             <div class="card rounded-s shadow-l text-center py-2 mx-2">
               <i class=" fa fa-female fa-4x"></i>
               <p>Female</p>
-              <div class="form-check-inline">
+              <div class="form-check-inline offset-5">
                 <label class="form-check-label">
                   <input type="radio" class="form-check-input" name="gender" value="F">
                 </label>
@@ -31,7 +31,7 @@ if (!(auth())) {
             <div class="card rounded-s shadow-l text-center py-2 mx-2">
               <i class=" fa fa-male fa-4x"></i>
               <p>Male</p>
-              <div class="form-check-inline">
+              <div class="form-check-inline offset-5">
                 <label class="form-check-label">
                   <input type="radio" class="form-check-input" name="gender" value="M">
                 </label>

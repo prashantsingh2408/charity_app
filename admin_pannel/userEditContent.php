@@ -22,8 +22,11 @@ if ($result = $conn->query($sql)) {
     $bio = $row['bio'];
     $height = $row['height'];
     $pic = $row['pic'];
-}
-?>
+     $current_streak = $row['current_streak'];
+    $max_streak = $row['max_streak'];
+    }
+
+?>  
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -166,7 +169,7 @@ if ($result = $conn->query($sql)) {
                         <div class="form-group">
                             <label>Date:</label>
                             <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate">
+                                <input type="text" name='birthday' value=<?=$birthday?> class="form-control datetimepicker-input" data-target="#reservationdate">
                                 <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
@@ -224,7 +227,7 @@ if ($result = $conn->query($sql)) {
                                     Current Streak
                                 </span>
                             </div>
-                            <input name='current_streak' type="height" class="form-control" placeholder="Current Streak" value="<?= $row['current_streak'] ?>">
+                            <input name='current_streak' type="height" class="form-control"  value="<?= $current_streak ?>">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Km</span>
                             </div>
@@ -238,7 +241,7 @@ if ($result = $conn->query($sql)) {
                                     Max Streak
                                 </span>
                             </div>
-                            <input name='max_streak' type="height" class="form-control" placeholder="Max Streak" value="<?= $row['max_streak'] ?>">
+                            <input name='max_streak' type="height" class="form-control"  value="<?= $max_streak ?>">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Km</span>
                             </div>

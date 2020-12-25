@@ -20,6 +20,12 @@ $height = $row['height'];
 $birthday = $row['birthday'];
 $pic = $row['pic'];
 $current = $row['current_steps'];
+// $current = 900; //for testing
+
+
+
+$step_active = $row['step_active'];
+$step_passive = $row['step_passive'];
 $target = $row['target_steps'];
 $workouts = $row['workouts'];
 $todays_steps = $row['todays_steps'];
@@ -37,3 +43,10 @@ $row = $result->fetch_array(MYSQLI_ASSOC);
 
 $rate_per_km = $row['rate_per_km'];
 $step_in_m = $row['step_in_m'];
+
+// Fetch goal
+// $stmt = $link->prepare("SELECT goal_name FROM goals WHERE id=?");
+// $stmt->bind_param('i', $);
+// $stmt->execute();
+// $result = $stmt->get_result();
+// $row = $result->fetch_array(MYSQLI_ASSOC);
