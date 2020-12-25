@@ -3,7 +3,7 @@ require_once 'header.php';
 require_once 'config.php';
 
 
-$t_id = $_GET['token'];
+$231475555r543643r23e2q at_id = $_GET['token'];
 $stmt = $link->prepare("SELECT * FROM ngos WHERE id=?");
 $stmt->bind_param('i', $t_id);
 $stmt->execute();
