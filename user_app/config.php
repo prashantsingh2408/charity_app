@@ -6,9 +6,9 @@
 //$database = "fitness_app";
 
 $servername = "sql12.freemysqlhosting.net";
-$username = "sql12382803";
-$password = "AIgKGzqz36";
-$db = "sql12382803";
+$username = "sql12383810";
+$password = "77PaVC32az";
+$db = "sql12383810";
 
 
 //Establish Connection
