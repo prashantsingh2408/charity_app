@@ -2,6 +2,7 @@
 require_once 'header.php';
 require_once 'config.php';
 $stmt = $link->prepare("SELECT * FROM notification where user_id=?");
+// var_dump($stmt);
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();

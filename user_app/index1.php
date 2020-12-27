@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div class="header header-fixed header-logo-center" style="border-bottom: solid 0px rgba(0,0,0,.0);box-shadow: 0 0px 0px 0 rgba(0,0,0,.0);">
-    <?php if ($current >500) {
+    <?php if ($current > 500) {
     ?>
         <div class='row justify-content-center mt-2'>
             <p class="">Steps available <span class="ml-1 float-right">
@@ -53,7 +53,10 @@ if ($result->num_rows > 0) {
                 <p class="mb-0">Distance (km)</p>
             </div>
             <div class="w-50 text-center">
-                <div id="imgArea"><img style='border-radius: 50%' ; src="<?= $pic; ?>" height="50%" width="50%"></div>
+                <?php
+                    $pic = '../admin_pannel/' . $pic;
+                ?>
+                <div id="imgArea"><img style='border-radius: 50%' ; src="<?= $pic; ?>" alt="<?= $pic; ?>" height="50%" width="50%"></div>
             </div>
             <div class="w-25 text-center">
                 <i class="fa fa-shoe-prints fa-lg" style="-webkit-transform: rotate(-90deg);-moz-transform: rotate(-90deg);-ms-transform: rotate(-90deg);-o-transform: rotate(-90deg);transform: rotate(-90deg);"></i>

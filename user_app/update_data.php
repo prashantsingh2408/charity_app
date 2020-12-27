@@ -3,9 +3,10 @@
 require_once 'config.php';
 
 session_start();
-
+//echo 'hi';  
 if(isset($_POST['first']) && isset($_POST['last']) && isset($_POST['email']))
 {
+    
     $email=$_POST['email'];
     $first=$_POST['first'];
     $last=$_POST['last'];
@@ -20,6 +21,7 @@ if(isset($_POST['first']) && isset($_POST['last']) && isset($_POST['email']))
     
     else if($stmt_u->execute())
     {
+
         $response['msg']='ok';
     }
     else
@@ -29,4 +31,3 @@ if(isset($_POST['first']) && isset($_POST['last']) && isset($_POST['email']))
     
     echo json_encode($response);
 }
-?>          

@@ -14,12 +14,12 @@ $change_makers = $_POST['change_makers'];
 
 $sql = "UPDATE ngos SET name_ngos = '$name_ngos', 
           partner='$partner', 
-          current_amount='$current_amount',
+          current_amount=$current_amount,
           total_goal=$total_goal,
           no_of_workout = $no_of_workout,
           description = '$description',
           about = '$about',
-          change_makers=$change_makers  WHERE id = $id";
+          change_makers='$change_makers'  WHERE id = $id";
 
 echo $sql;
 // echo $sql;
@@ -83,7 +83,7 @@ if (isset($_FILES['pic']['tmp_name'])) {
     }
 
     // save location in db
-    $sql = "UPDATE ngos SET pic = '$target_file' WHERE id = $id";
+    $sql = "UPDATE ngos SET img = '$target_file' WHERE id = $id";
     echo $sql;
     $conn->query($sql);
 

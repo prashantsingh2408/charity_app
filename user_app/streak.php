@@ -16,10 +16,12 @@ require_once 'header.php';
 
             </div>
         </div>
-        <p class="text-center text-white d-block">Only <?= (($target - $todays_steps) * $step_in_m) / 1000; ?> km to
-            maintain streak.</p>
-        <p class="text-center text-white d-block">Active goals  km to
-            maintain streak.</p>
+        <p class="text-center text-white d-block">Only <snap style='color:black'><?= (($target - $todays_steps) * $step_in_m) / 1000; ?></snap> km to
+                maintain streak.
+                </br>
+                Active goals <snap style='color:black'><?= $goal_name ?></snap>
+        </p>
+
     </div>
 
 

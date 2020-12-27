@@ -13,9 +13,7 @@ require_once 'config.php';
 
 
                     <div class="form-group">
-                        <input type="button" id="send_otp"
-                            class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-highlight w-100 mt-4"
-                            value="VERIFY PHONE NUMBER">
+                        <input type="button" id="send_otp" class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-highlight w-100 mt-4" value="VERIFY PHONE NUMBER">
                         <p style="color:red" id="msg2"></p>
                     </div>
                 </div>
@@ -33,9 +31,7 @@ require_once 'config.php';
 
                     <p style="color:red" id="msg1"></p>
                     <div class="form-group">
-                        <input type="submit"
-                            class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-highlight w-100 mt-4"
-                            value="VERIFY PHONE NUMBER">
+                        <input type="submit" class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-highlight w-100 mt-4" value="VERIFY PHONE NUMBER">
 
                     </div>
                 </div>
@@ -49,33 +45,44 @@ require_once 'config.php';
     </form>
 
     <?php
-  require_once 'js-links.php';
-  ?>
+    require_once 'js-links.php';
+    ?>
 
 
     <script>
-    $(document).ready(function() {
-        $('#send_otp').click(function() {
-            var phone_number = $('#phone').val();
-            var re = /^[5-9]\d{9}$/;
-            var condition = re.test(phone_number);
-            //	console.log(condition);	
-            //$('#msg1').html("");
-            if (!condition) {
-                $('#msg2').html(" * Invalid Phone Number");
-                //document.getElementById("phoneNo").value="";
-                //  alert("* invalid phone number");
-            } else {
-                $.post("ajax_login.php", {
+        $(document).ready(function() {
+            // alert(1);
+            $('#send_otp').click(function() {
+                    // alert(2);
+
+                    var phone_number = $('#phone').val();
+                    var re = /^[5-9]\d{9}$/;
+                    var condition = re.test(phone_number);
+                    //	console.log(condition);	
+                    //$('#msg1').html("");
+                    if (!condition) {
+                        $('#msg2').html(" * Invalid Phone Number");
+                        //document.getElementById("phoneNo").value="";
+                        //  alert("* invalid phone number");
+                    } else {
+                        // alert(3);
+
+                        // $.post("update_data.php", {
+                        $.post("ajax_login.php", {
                         contact: phone_number,
                     },
                     function(data, status) {
+                        alert(data);
+
+                        // alert(data);
                         var obj = JSON.parse(data);
+                        alert(5);
+                        alert(obj.msg);
                         if (obj.msg == "continue") {
                             $('#otp').show();
                             $('#mobile').hide();
                         } else {
-                            alert("unable to send otp");
+                            alert("      to send otp");
 
                         }
                     });
@@ -85,30 +92,30 @@ require_once 'config.php';
 
         $("#theform").on('submit', function(e) {
 
-            e.preventDefault();
-            $.ajax({
-                type: 'POST',
-                url: 'ajax_login.php',
-                data: new FormData(this),
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(data) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'ajax_login.php',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(data) {
 
-                    var obj = JSON.parse(data);
+                var obj = JSON.parse(data);
 
-                    if (obj.msg == 'old') {
-                        window.location = 'index1.php';
-                    } else if (obj.msg == 'register') {
-                        window.location = 'login-3.php';
-                    } else {
-                        $('#msg1').html(obj.msg);
-                    }
+                if (obj.msg == 'old') {
+                    window.location = 'index1.php';
+                } else if (obj.msg == 'register') {
+                    window.location = 'login-3.php';
+                } else {
+                    $('#msg1').html(obj.msg);
+                }
 
-                },
+            },
 
-            });
+        });
         });
 
-    });
+        });
     </script>

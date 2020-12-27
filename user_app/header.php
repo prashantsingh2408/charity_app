@@ -2,9 +2,6 @@
 include "session.php";
 ?>
 
-
-
-
 <!DOCTYPE HTML>
 <html lang="en">
 

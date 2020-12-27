@@ -3,17 +3,17 @@ require_once 'header.php';
 require_once 'config.php';
 
 
-$231475555r543643r23e2q at_id = $_GET['token'];
+$id_ngo = $_GET['token'];
 $stmt = $link->prepare("SELECT * FROM ngos WHERE id=?");
-$stmt->bind_param('i', $t_id);
+$stmt->bind_param('i', $id_ngo);
 $stmt->execute();
 $result = $stmt->get_result();
-$row = $result->fetch_array(MYSQLI_ASSOC);
+$row_ngos = $result->fetch_array(MYSQLI_ASSOC);
 
 
-$_SESSION['ngo_id'] = $t_id;
+$_SESSION['ngo_id'] = $id_ngo;
 $stmt_p = $link->prepare("SELECT * FROM user WHERE id IN (select distinct user_id from ngo_count where ngo_id=?)");
-$stmt_p->bind_param('i', $t_id);
+$stmt_p->bind_param('i', $id_ngo);
 $stmt_p->execute();
 $result_p = $stmt_p->get_result();
 if ($result_p->num_rows > 0) {
@@ -31,7 +31,7 @@ if ($result_p->num_rows > 0) {
 
 //Fetch user
 $stmt = $link->prepare("SELECT * FROM user WHERE id=?");
-$stmt->bind_param('i', $t_id);
+$stmt->bind_param('i', $id_ngo);
 $stmt->execute();
 $result = $stmt->get_result();
 $rows_u = $result->fetch_array(MYSQLI_ASSOC);
@@ -49,22 +49,53 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
             <span>With Ved Foundation</span>
         </div>
         <p><?= $rows_u['description'] ?></p>
+        <?php
+        $img_ngos = '../admin_pannel/' . $row_ngos['img'];
+        ?>
+        <div class="row">
+            <img class="img-responsive" src="<?= $img_ngos; ?>" alt="<?= $img_ngos; ?>" height="50%" width="100%">
+        </div>
         <div class="card rounded-m shadow-l">
             <div class="container container-fluid px-4 py-2">
                 <div class="row mb-0">
+
                     <div class="w-25 text-left">
                         <h1 class=""><i class="fa fa-laptop fa-2x"></i></h1>
                     </div>
+
                     <div class="w-75">
-                        <h3 class="mb-0">10000 Children</h3>
+
+                        <h3 class="mb-0"><?= $row_ngos['ngo_unique'] ?> Children</h3>
                         <p class="mb-0" style="font-size:10px">to be taught with advanced digital teaching</p>
                     </div>
                 </div>
             </div>
         </div>
-        <p style="font-size:16px">Raised Rs <?= $rows_u['amount_raised']; ?> in <?= $rows_u['no_of_days']; ?> days</p>
+
+
+        <?php
+        //  require 'user_define_fun.php'; 
+        // $ngos_raised = ngos_$ngos_total_raised($id_ngo);
+        // NOT WORK LOAD PROBLEM
+
+        $stmt = $link->prepare("SELECT raised FROM ngos_user WHERE id_ngos=?");
+        $stmt->bind_param('i', $id_ngo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        //Sum raised of all user belong to this ngos
+        $ngos_total_raised = 0;
+        while ($rows = $result->fetch_array(MYSQLI_ASSOC)) {
+            if ($rows['raised'] == null) {
+                $ngos_total_raised = $ngos_total_raised + 0;
+            } else {
+                $ngos_total_raised = $ngos_total_raised + $row['raised'];
+            }
+        }
+        ?>
+        <p style="font-size:16px">Raised Rs <?= $ngos_total_raised ?> in <?= $rows_u['no_of_days']; ?> days</p>
         <div class="progress my-progress-2">
-            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+            <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:50%">
                 <span class="sr-only">70% Complete</span>
             </div>
         </div>
@@ -94,22 +125,51 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
             </div>
             <div class="row mt-3 mb-0">
                 <div class="w-25 text-center">
-                    <h3 class="mb-0">Rs<?= $rows_u['raised']; ?></h3>
+                    <?php
+                    //User  donations to this ngo
+                    $stmt = $link->prepare("SELECT raised,workouts,distance,time_spent FROM ngos_user WHERE id_users = ? and id_ngos = ?");
+                    $stmt->bind_param('ii', $id, $id_ngo);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $rows = $result->fetch_array(MYSQLI_ASSOC);
+                    if ($rows['raised'] == null) {
+                        $usr_raised = 0;
+                    } else {
+                        $usr_raised = $rows['raised'];
+                    }
+                    if ($rows['workouts'] == null) {
+                        $usr_wrkouts = 0;
+                    } else {
+                        $usr_wrkouts = $rows['workouts'];
+                    }
+                    if ($rows['distance'] == null) {
+                        $usr_distance = 0;
+                    } else {
+                        $usr_distance = $rows['distance'];
+                    }
+
+                    if ($rows['time_spent'] == null) {
+                        $usr_time_spent = 0;
+                    } else {
+                        $usr_time_spent = $rows['time_spent'];
+                    }
+                    ?>
+                    <h3 class="mb-0">Rs <?= $usr_raised ?></h3>
                     <p class="mb-0" style="font-size:10px">Raised</p>
                 </div>
                 <div class="w-25 text-center">
-                    <h3 class="mb-0">0<?= $rows_u['workouts']; ?></h3>
+                    <h3 class="mb-0">0<?= $usr_wrkouts ?></h3>
                     <p class="mb-0" style="font-size:10px">Workouts</p>
                 </div>
                 <div class="w-25 text-center">
 
-
+                    <!-- To be update -->
                     <h3 class="mb-0"><?= ($todays_steps * $step_in_m) / 1000; ?>km</h3>
                     <p class="mb-0" style="font-5gt size:10px">Distance</p>
                 </div>
                 <div class="w-25 text-center">
                     <?php
-                    $array = explode('.', $rows_u['time_spent']);
+                    $array = explode('.', $usr_time_spent);
                     $h = $array[0];
                     $m = $array[0];
                     ?>
@@ -118,6 +178,15 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
                 </div>
             </div>
             <div class="row mt-3 mb-0">
+                <?php
+
+                //Select 10 use of this ngo
+                // $stmt = $link->prepare("SELECT id_user FROM ngos_user WHERE id_ngos = ? ORDER BY raised");
+                // $stmt->bind_param('i', $id_ngo);
+                // $stmt->execute();
+                // $result = $stmt->get_result();
+                // $rows = $result->fetch_array(MYSQLI_ASSOC);
+                ?>
                 <h4>Hall Of Fame</h4>
                 <div class="owl-carousel owl-carousel-2 owl-theme">
                     <?php

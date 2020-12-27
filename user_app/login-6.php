@@ -31,7 +31,7 @@ if (!(auth())) {
          </a>-->
                <!--<a href="login-7" class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-highlight w-50 mx-1">CONTINUE
          </a>-->
-               < <!--<input type="button" href="login-5" class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-light w-100 mt-4" value="BACK">-->
+                <!--<input type="button" href="login-5" class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-light w-100 mt-4" value="BACK">-->
                   <a href="login-5" class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-white text-dark border-dark w-50 mx-1">BACK
                   </a>
                   <button type="submit" class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-highlight w-50 mx-1">CONTINUE
