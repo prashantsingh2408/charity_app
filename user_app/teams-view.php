@@ -8,7 +8,6 @@ if (!isset($_POST['name'])) {
     }
 }
 // END Redirect if use refresh
-
 // Fetch post
 
 
@@ -122,8 +121,6 @@ while ($row = $result->fetch_assoc()) {
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-
-
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">

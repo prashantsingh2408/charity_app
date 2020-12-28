@@ -95,7 +95,8 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
         ?>
         <p style="font-size:16px">Raised Rs <?= $ngos_total_raised ?> in <?= $rows_u['no_of_days']; ?> days</p>
         <div class="progress my-progress-2">
-            <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+            <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
+                style="width:50%">
                 <span class="sr-only">70% Complete</span>
             </div>
         </div>
@@ -225,9 +226,10 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
                         while ($rows = $result->fetch_assoc()) { //iterate over each row
                             $i = $i + 1; // count no of user printed
                         ?>
-                            <div class="col-3">
-                                <img class='img-responsive' style='border-radius:50%;' height=50px; src="<?= $rows['pic'] ?>">
-                            </div>
+                        <div class="col-3">
+                            <img class='img-responsive' style='border-radius:50%;' height=50px;
+                                src="<?= $rows['pic'] ?>">
+                        </div>
                         <?php
 
                             if ($i > 7) {
@@ -242,12 +244,6 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
                     <h4>About <?= $row_ngos['partner'] ?></h4>
                     <p class="mb-2"><?= $row_ngos['about']; ?></p>
                 </div>
-                <!--About-->
-                <!-- <span class="p-3 bg-white d-flex fixed-bottom">
-                    <a href="workout"
-                        class="btn btn-m btn-center-l bg-highlight text-uppercase font-900 text-uppercase rounded-s shadow-xl w-100">OUTDOOR
-                        WORKOUT <i class="fa fa-walking"></i></a>
-                </span> -->
             </div>
             <?php
             require_once 'js-links.php';
