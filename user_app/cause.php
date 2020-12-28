@@ -187,32 +187,68 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
                 // $result = $stmt->get_result();
                 // $rows = $result->fetch_array(MYSQLI_ASSOC);
                 ?>
-                <h4>Hall Of Fame</h4>
+                <!-- <h4>Hall Of Fame</h4>
                 <div class="owl-carousel owl-carousel-2 owl-theme">
                     <?php
                     if (isset($pics)) {
                         foreach ($pics as $pic) {
                     ?>
-                            <div class="item">
-                                <img src="<?= $pic['pic']; ?>" class="profile-img">
-                            </div>
+                    <div class="item">
+                        <img src="<?= $pic['pic']; ?>" class="profile-img">
+                    </div>
                     <?php
                         }
                     }
                     ?>
+                </div> -->
+                <!-- Hall of fame -->
+                <!-- Base on total_donation_steps -->
+                <!-- Fetch hall of fame -->
+                <?php
+                require "config.php";
+                $stmt = $link->prepare("SELECT total_donation_steps,id,firstname,lastname,pic FROM user ORDER BY total_donation_steps DESC");
+                $stmt->execute();
+                $result = $stmt->get_result();
+                // $rows = $result->fetch_array(MYSQLI_ASSOC);
+                // var_dump($rows);
+                $total_users = $result->num_rows;
+                ?>
+                <!-- USERS LIST -->
+                <div class="container">
+                    <div class="row">
+                        <h3>Hall of fame</h3>
+                    </div>
+                    <div class="row">
+
+                        <?php
+                        $i = 0;
+                        while ($rows = $result->fetch_assoc()) { //iterate over each row
+                            $i = $i + 1; // count no of user printed
+                        ?>
+                            <div class="col-3">
+                                <img class='img-responsive' style='border-radius:50%;' height=50px; src="<?= $rows['pic'] ?>">
+                            </div>
+                        <?php
+
+                            if ($i > 7) {
+                                break; // only top 10 user print then loop break;
+                            }
+                        }
+                        ?>
+                    </div>
+                </div> <!-- Hall of fame -->
+                <!--About-->
+                <div class="row mt-3 mb-0">
+                    <h4>About <?= $row_ngos['partner'] ?></h4>
+                    <p class="mb-2"><?= $row_ngos['about']; ?></p>
                 </div>
+                <!--About-->
+                <!-- <span class="p-3 bg-white d-flex fixed-bottom">
+                    <a href="workout"
+                        class="btn btn-m btn-center-l bg-highlight text-uppercase font-900 text-uppercase rounded-s shadow-xl w-100">OUTDOOR
+                        WORKOUT <i class="fa fa-walking"></i></a>
+                </span> -->
             </div>
-            <div class="row mt-3 mb-0">
-                <h4>About <?= $rows_u['partner'] ?></h4>
-                <p class="mb-2"><?= $rows_u['about']; ?></p>
-            </div>
-        </div>
-    </div>
-    <span class="p-3 bg-white d-flex fixed-bottom">
-        <a href="workout" class="btn btn-m btn-center-l bg-highlight text-uppercase font-900 text-uppercase rounded-s shadow-xl w-100">OUTDOOR
-            WORKOUT <i class="fa fa-walking"></i></a>
-    </span>
-</div>
-<?php
-require_once 'js-links.php';
-?>
+            <?php
+            require_once 'js-links.php';
+            ?>
