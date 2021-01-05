@@ -10,15 +10,13 @@ require_once 'header.php';
         <img src="images/teams.jpg" class="card-img">
         <h1>LETS WORK TOGETHER</h1>
         <p class="mb-0">Why walk alone when you can walk together?</p>
-        <!-- <a href="teams-join"
-            class="btn btn-m btn-center-l bg-white text-dark text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4"> -->
         <form id='form' action='teams-view.php' method='post'>
-            <input type='submit' name='ushi_per_rho' value='JOIN & VIEW' class="btn btn-m btn-center-l bg-white text-dark text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4">
-
+            <input type='submit' name='ushi_per_rho' value='JOIN & VIEW'
+                class="btn btn-m btn-center-l bg-white text-dark text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4">
             </input>
         </form>
-
-        <a href="teams-create" class="btn btn-m btn-center-l bg-highlight text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4">
+        <a href="teams-create"
+            class="btn btn-m btn-center-l bg-highlight text-uppercase font-900 text-uppercase rounded-s shadow-xl mt-4">
             CREATE TEAM <i class="fa fa-lock"></i>
         </a>
     </div>

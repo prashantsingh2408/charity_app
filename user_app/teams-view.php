@@ -9,8 +9,6 @@ if (!isset($_POST['name'])) {
 }
 // END Redirect if use refresh
 // Fetch post
-
-
 if (!isset($_POST['ushi_per_rho'])) {
     $state = $_POST['state'];
     $name = $_POST['name'];
@@ -46,7 +44,6 @@ if (!isset($_POST['ushi_per_rho'])) {
             $uploadOk = 0;
         }
     }
-
     // Check if file already exists
     if (file_exists($target_file)) {
         // echo "Sorry, file already exists.";
@@ -106,7 +103,6 @@ while ($row = $result->fetch_assoc()) {
 // $conn->query($sql_update);
 ////END Input file
 ?>
-
 
 <body class="sidebar-mini sidebar-closed sidebar-collapse" style="height: auto;">
     <div class="wrapper">
@@ -229,7 +225,4 @@ while ($row = $result->fetch_assoc()) {
     <script src="/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/dist/js/demo.js"></script>
-
-
-
 </body>

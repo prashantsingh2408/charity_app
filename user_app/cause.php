@@ -39,7 +39,7 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
 
 <div class="header header-fixed header-logo-center">
     <a href="#" class="header-title">Cause OverView</a>
-    <a href="javascript:history.back()A" class="header-icon header-icon-1"><i class="fa fa-arrow-left fa-lg"></i></a>
+    <a href="index1.php" class="header-icon header-icon-1"><i class="fa fa-arrow-left fa-lg"></i></a>
 </div>
 <div class="page-content header-clear-small">
     <img src='' class="card-img">
@@ -74,10 +74,6 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
 
 
         <?php
-        //  require 'user_define_fun.php'; 
-        // $ngos_raised = ngos_$ngos_total_raised($id_ngo);
-        // NOT WORK LOAD PROBLEM
-
         $stmt = $link->prepare("SELECT raised FROM ngos_user WHERE id_ngos=?");
         $stmt->bind_param('i', $id_ngo);
         $stmt->execute();
@@ -180,21 +176,12 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
             </div>
             <div class="row mt-3 mb-0">
                 <?php
-
-                //Select 10 use of this ngo
-                // $stmt = $link->prepare("SELECT id_user FROM ngos_user WHERE id_ngos = ? ORDER BY raised");
-                // $stmt->bind_param('i', $id_ngo);
-                // $stmt->execute();
-                // $result = $stmt->get_result();
-                // $rows = $result->fetch_array(MYSQLI_ASSOC);
                 ?>
                 <!-- <h4>Hall Of Fame</h4>
-                <div class="owl-carousel owl-carousel-2 owl-theme">
                     <?php
                     if (isset($pics)) {
                         foreach ($pics as $pic) {
                     ?>
-                    <div class="item">
                         <img src="<?= $pic['pic']; ?>" class="profile-img">
                     </div>
                     <?php
@@ -210,8 +197,6 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
                 $stmt = $link->prepare("SELECT total_donation_steps,id,firstname,lastname,pic FROM user ORDER BY total_donation_steps DESC");
                 $stmt->execute();
                 $result = $stmt->get_result();
-                // $rows = $result->fetch_array(MYSQLI_ASSOC);
-                // var_dump($rows);
                 $total_users = $result->num_rows;
                 ?>
                 <!-- USERS LIST -->
@@ -220,7 +205,6 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
                         <h3>Hall of fame</h3>
                     </div>
                     <div class="row">
-
                         <?php
                         $i = 0;
                         while ($rows = $result->fetch_assoc()) { //iterate over each row
@@ -229,9 +213,9 @@ $rows_u = $result->fetch_array(MYSQLI_ASSOC);
                         <div class="col-3">
                             <img class='img-responsive' style='border-radius:50%;' height=50px;
                                 src="<?= $rows['pic'] ?>">
+                            <p><?= $rows['firstname'] . $rows['lastname'] ?></p>
                         </div>
                         <?php
-
                             if ($i > 7) {
                                 break; // only top 10 user print then loop break;
                             }

@@ -1,43 +1,31 @@
 <?php
 require_once 'header.php';
+//require_once 'header2.php';
 require_once 'session.php';
 $user_id = $_SESSION['loggin_data'];
-// $stmt_p = $link->prepare("SELECT * FROM ngos WHERE id IN (select distinct ngo_id from ngo_count where user_id=?)");
-// $stmt_p->bind_param('i', $user_id);
-// $stmt_p->execute();
-// $result_p = $stmt_p->get_result();
-// if ($result_p->num_rows > 0) {
-//     while ($row_p = $result_p->fetch_assoc()) {
-//         $charity_overview[] = $row_p;
-//     }
-// }
-// $stmt_p->close();
-// $stmt_sum = $link->prepare("SELECT sum(donation) as donate FROM ngo_count WHERE user_id=? group by ngo_id;");
-// $stmt_sum->bind_param('i', $user_id);
-// $stmt_sum->execute();
-// $result_sum = $stmt_sum->get_result();
-// //$row_p=$result_p->fetch_array(MYSQLI_ASSOC);
-// if ($result_sum->num_rows > 0) {
-//     while ($row_sum = $result_sum->fetch_assoc()) {
-//         $sum[] = $row_sum;
-//     }
-// }
-// $stmt_sum->close();
-// $stmt_a = $link->prepare("SELECT * from achievements;");
-
-// $stmt_a->execute();
-// $result_a = $stmt_a->get_result();
-// if ($result_a->num_rows > 0) {
-//     while ($row_a = $result_a->fetch_assoc()) {
-//         $achievements[] = $row_a;
-//     }
-// }
-// $stmt_a->close();
-// 
 ?>
 <div class="header header-fixed header-logo-center">
     <a href="index" class="header-title">Profile</a>
     <a href="profile-edit" class="header-icon header-icon-4"><i class="fas fa-pencil-alt fa-lg"></i></a>
+    <!-- model -->
+    <h2>Modal Example</h2>
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Open Modal</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+
+    </div>
+
+    <!-- /model -->
+
     <a href="#" class="header-icon header-icon-3"><i class="fas fa-share-alt fa-lg"></i></a>
 </div>
 <div class="page-content header-clear-medium">
@@ -128,18 +116,25 @@ $user_id = $_SESSION['loggin_data'];
         <div class="divider divider-margins mb-1"></div>
         <div class="container-fluid">
             <div class="list-group list-custom-small">
-                <!--<a href="in-progress">
-                    <span>IN-PROGRESS</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>-->
+                <!--LeaderBoard-->
+                <?php
+                require 'config.php';
+                $stmt = $link->prepare("SELECT * FROM user ORDER BY total_donation_steps");
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $rank = 0;
+                while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                    $rank = $rank + 1;
+                    if ($row['id'] == $user_id) {
+                        break;
+                    }
+                };
+                ?>
                 <a href="leaderboard">
-                    <span>GLOBAL RANK (#9001)</span>
+                    <span>GLOBAL RANK (#<?= $rank ?>)</span>
                     <i class="fa fa-angle-right"></i>
                 </a>
-                <!--<a href="history">
-         <span>WORKOUT HISTORY</span>
-         <i class="fa fa-angle-right"></i>
-         </a>-->
+                <!--leaderboard-->
             </div>
         </div>
         <div class="container container-fluid p-4">

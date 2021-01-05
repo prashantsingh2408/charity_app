@@ -1,15 +1,11 @@
 <?php
 require_once 'header.php';
 require_once 'config.php';
-
-
-//require "profile-check.php";
 require "auth.php";
 
 if (!(auth())) {
     header("location:login.php");
 }
-
 
 $first = $last = $phone = "";
 $first_err = $last_err = $phone_err = "";
@@ -60,7 +56,7 @@ require_once 'js-links.php';
     $(document).ready(function() {
         alert(1);
         $("#dataform").on('submit', function(e) {
-            alert(2);
+            //alert(2);
 
             var email = $('#email').val();
             var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -98,10 +94,10 @@ require_once 'js-links.php';
                     $('#lst').html(" * Enter a valid first name");
                 }
             }
-            alert(3);
+            //alert(3);
 
             if ((condition) && (condition2) && (condition3)) {
-                alert(4);
+                //alert(4);
 
                 e.preventDefault();
                 $.ajax({

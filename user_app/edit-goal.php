@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
         <div class="content">
             <a href="#" class="header-title">Pick A Goal</a>
             <a href="javascript:history.back()" class="header-icon header-icon-1"><i class="fa fa-arrow-left fa-lg"></i></a>
-            <a href="#" class="header-icon header-icon-4"><i class="fa fa-check fa-lg"></i></a>
+            <!--<a href="#" class="header-icon header-icon-4"><i class="fa fa-check fa-lg"></i></a>-->
         </div>
         <div class="page-content header-clear-medium">
             <div class="content">
@@ -59,14 +59,14 @@ if ($result->num_rows > 0) {
                     ?>
                 </div>
                 <!-- <div class="d-flex fixed-bottom p-2"> -->
-                    <!-- <a href="login-6" class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-white text-dark border-dark w-50 mx-1">BACK
+                <!-- <a href="login-6" class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-white text-dark border-dark w-50 mx-1">BACK
          </a>
          <a href="login-8" class="btn btn-m rounded-s text-uppercase font-700 mb-2 btn-center-xl bg-highlight w-50 mx-1">CONTINUE
          </a>-->
 
-                    <div class="form-group justify-content-center">
-                        <input type="submit" class="btn     btn-center-xl bg-highlight " value="CONTINUE">
-                    </div>
+                <div class="form-group justify-content-center">
+                    <input type="submit" class="btn     btn-center-xl bg-highlight " value="CONTINUE">
+                </div>
                 <!-- </div> -->
             </div>
         </div>
