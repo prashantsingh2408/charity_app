@@ -1,16 +1,6 @@
 <?php
 // Credentials
 
-//$servername = "sql12.freemysqlhosting.net";
-//$username = "sql12383810";
-//$password = "77PaVC32az";
-//$db = "sql12383810";
-
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $db = "sql12382803"; 
-
 $hostname = "localhost";
 $username = "root";
 $password = "";

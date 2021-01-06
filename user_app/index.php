@@ -21,4 +21,4 @@ require_once 'js-links.php';
     setTimeout(function() {
         window.location.href = 'login.php';
     }, 3000);
-</script>a
+</script>

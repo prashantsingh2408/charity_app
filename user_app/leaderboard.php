@@ -41,54 +41,54 @@ require_once 'header.php';
 
 
         <?php
-      require 'config.php';
-      $stmt = $link->prepare("SELECT * FROM user ORDER BY total_donation_steps");
+        require 'config.php';
+        $stmt = $link->prepare("SELECT * FROM user ORDER BY total_donation_steps");
 
-      // $stmt_a->bind_param('i', $admin_id);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      $index = 0;
-      while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-         $pic_src = '../admin_pannel/' . $row['pic'];
-         $index = $index + 1;
-      ?>
-        <!-- row -->
-        <div class='row'>
+        // $stmt_a->bind_param('i', $admin_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $index = 0;
+        while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+            $pic_src = '../admin_pannel/' . $row['pic'];
+            $index = $index + 1;
+        ?>
+            <!-- row -->
+            <div class='row'>
 
 
-            <!-- index -->
-            <div class='col'>
-                <?= $index ?>
-                <!-- /index -->
+                <!-- index -->
+                <div class='col'>
+                    <?= $index ?>
+                    <!-- /index -->
+                </div>
+                <!-- pic -->
+                <div class="col">
+                    <img src="<?= $pic_src ?>" alt='<?= $pic_src ?>' class="profile-img">
+                </div>
+                <!-- /pic -->
+
+                <!-- name -->
+                <div class="col">
+                    <?= $row['firstname'] . $row['lastname'] ?>
+                </div>
+                <!-- /name -->
+
+                <!-- donation -->
+                <div class="col">
+                    <?php
+                    $total_donation_m = $row['total_donation_steps'] * $step_in_m;
+                    $total_donation_km = $total_donation_m / 1000;
+                    $total_donation_rs = $rate_per_km * $total_donation_km;
+                    ?>
+                    <span class="float-right"><?= $total_donation_rs ?></span>
+                </div>
+                <!-- /donation -->
             </div>
-            <!-- pic -->
-            <div class="col">
-                <img src="<?= $pic_src ?>" alt='<?= $pic_src ?>' class="profile-img">
-            </div>
-            <!-- /pic -->
-
-            <!-- name -->
-            <div class="col">
-                <?= $row['firstname'] . $row['lastname'] ?>
-            </div>
-            <!-- /name -->
-
-            <!-- donation -->
-            <div class="col">
-                <?php
-               $total_donation_m = $row['total_donation_steps'] * $step_in_m;
-               $total_donation_km = $total_donation_m / 1000;
-               $total_donation_rs = $rate_per_km * $total_donation_km;
-               ?>
-                <span class="float-right"><?= $total_donation_rs ?></span>
-            </div>
-            <!-- /donation -->
-        </div>
-        <!-- /row -->
+            <!-- /row -->
 
         <?php
-      }
-      ?>
+        }
+        ?>
     </div>
 </div>
 <?php

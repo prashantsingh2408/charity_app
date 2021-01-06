@@ -1,8 +1,8 @@
 <?php
-$servername = "sql12.freemysqlhosting.net";
-$username = "sql12383810";
-$password = "77PaVC32az";
-$db = "sql12383810";
+// $servername = "sql12.freemysqlhosting.net";
+// $username = "sql12383810";
+// $password = "77PaVC32az";
+// $db = "sql12383810";
 
 // $servername = "localhost";
 // $username = "root";
@@ -15,10 +15,10 @@ $db = "sql12383810";
 // $password = "";
 // $db = "sql12382803";
 
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $db = "fitness_app";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "charity";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
 
@@ -27,4 +27,3 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 // echo "Connected successfully";
-?>
